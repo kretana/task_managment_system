@@ -1,5 +1,5 @@
-import {createSlice, Draft, PayloadAction} from '@reduxjs/toolkit';
-import { login } from '../actions/authActions';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { login } from './authThunk';
 
 interface User {
     id: string;
@@ -36,7 +36,7 @@ const authSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(login.pending, (state: Draft<AuthState>) => {
+            .addCase(login.pending, (state) => {
                 state.loading = true;
                 state.error = null;
             })
@@ -47,11 +47,9 @@ const authSlice = createSlice({
                 state.isAuthenticated = true;
                 state.error = null;
 
-                // Save the token to localStorage
                 localStorage.setItem('authToken', action.payload.token);
             })
-
-            .addCase(login.rejected, (state: Draft<AuthState>, action: PayloadAction<string | undefined>) => {
+            .addCase(login.rejected, (state, action: PayloadAction<string | undefined>) => {
                 state.loading = false;
                 state.error = action.payload || 'Failed to log in';
             });
@@ -60,5 +58,3 @@ const authSlice = createSlice({
 
 export const { logout } = authSlice.actions;
 export default authSlice.reducer;
-
-

@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
-import { login } from "../redux/actions/authActions";
+import { login } from "../redux/slices/auth/authThunk";
 import {RootState} from "../redux/store";
+import { AppDispatch } from "../redux/store";
+
 
 export const AuthForm: React.FC = () => {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
 
     const { loading, error } = useSelector((state: RootState | any) => state.auth);
+
     const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {

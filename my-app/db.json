@@ -2,8 +2,8 @@
     "users": [
       {
         "id": "1",
-        "username": "kretana",
-        "password": "password123",
+        "username": "revelikretana@gmail.com",
+        "password": "kretana",
         "name": "KretanaReveli",
         "role": "admin",
         "token": "abc123token"
