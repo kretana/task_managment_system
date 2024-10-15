@@ -5,8 +5,8 @@ import {RootState} from "../redux/store";
 
 const PrivateRoute: React.FC = () => {
     const { isAuthenticated } = useSelector((state: RootState | any) => state.auth);
-
-    return isAuthenticated ? <Outlet /> : <Navigate to="/" replace />;
+    const token = localStorage.getItem('authToken')
+    return token ? <Outlet /> : <Navigate to="/" replace />;
 };
 
 export default PrivateRoute;

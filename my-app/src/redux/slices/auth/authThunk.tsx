@@ -22,7 +22,8 @@ export const login = createAsyncThunk<
                 password: credentials.password
             }
         });
-        return { user: response.data.user, token: response.data.token };
+        console.log(response.data,'data')
+        return { user: response.data, token: response.data[0].token };
     } catch (error) {
         return rejectWithValue('Failed to log in');
     }

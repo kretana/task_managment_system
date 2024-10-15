@@ -19,6 +19,7 @@ export const AuthForm: React.FC = () => {
         try {
             await dispatch(login({ username, password })).unwrap();
             navigate('/dashboard');
+
         } catch (error: any) {
             console.log('Failed to login. Please check your credentials.');
         }
