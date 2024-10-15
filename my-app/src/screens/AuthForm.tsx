@@ -1,25 +1,23 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { login } from "../redux/actions/authActions";
+import {RootState} from "../redux/store";
 
 export const AuthForm: React.FC = () => {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const [loading, setLoading] = useState<boolean>(false);
-    const [errorMessage, setErrorMessage] = useState<string>('');
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
+    const { loading, error } = useSelector((state: RootState | any) => state.auth);
     const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        setLoading(true);
         try {
             await dispatch(login({ username, password })).unwrap();
-            navigate('/dashboard');  // Navigate to dashboard after successful login
+            navigate('/dashboard');
         } catch (error: any) {
-            setLoading(false);
-            setErrorMessage('Failed to login. Please check your credentials.');
+            console.log('Failed to login. Please check your credentials.');
         }
     };
 
@@ -58,9 +56,9 @@ export const AuthForm: React.FC = () => {
                             required
                         />
                     </div>
-                    {errorMessage && (
+                    {error && (
                         <p className="text-red-500 text-center text-sm">
-                            {errorMessage}
+                            {error && 'Failed to login. Please check your credentials.'}
                         </p>
                     )}
                     <div className="flex items-center justify-center">

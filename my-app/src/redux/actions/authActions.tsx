@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import {URL} from '../../config/const'
 
 interface Credentials {
     username: string;
@@ -19,7 +20,7 @@ export const login = createAsyncThunk<LoginResponse, Credentials>(
     'auth/login',
     async (credentials, thunkAPI) => {
         try {
-            const response = await axios.get('http://localhost:3000/users', {
+            const response = await axios.get(`${URL}/users`, {
                 params: {
                     username: credentials.username,
                     password: credentials.password
