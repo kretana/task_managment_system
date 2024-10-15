@@ -1,14 +1,20 @@
 {
-  "users": [
-    {
-      "id": "a346",
-      "username": "test",
-      "password": "test"
-    },
-    {
-      "id": "b64f",
-      "username": "new",
-      "password": "new"
-    }
-  ]
+    "users": [
+      {
+        "id": "1",
+        "username": "kretana",
+        "password": "password123",
+        "name": "KretanaReveli",
+        "role": "admin",
+        "token": "abc123token"
+      },
+      {
+        "id": "2",
+        "username": "test",
+        "password": "password456",
+        "name": "Test",
+        "role": "developer",
+        "token": "xyz789token"
+      }
+    ]
 }
