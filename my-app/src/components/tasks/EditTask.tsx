@@ -141,6 +141,7 @@ export const EditTask: React.FC = () => {
                             onChange={(date: Date | null) => handleDateChange(date, 'updatedAt')}
                             className="w-full px-4 py-2 bg-gray-100 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500"
                             dateFormat="MMMM d, yyyy"
+                            isClearable
                         />
                     </div>
 
@@ -151,6 +152,7 @@ export const EditTask: React.FC = () => {
                             onChange={(date: Date | null) => handleDateChange(date, 'completedAt')}
                             className="w-full px-4 py-2 bg-gray-100 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500"
                             dateFormat="MMMM d, yyyy"
+                            isClearable
                         />
                     </div>
 
@@ -161,6 +163,7 @@ export const EditTask: React.FC = () => {
                             onChange={(date: Date | null) => handleDateChange(date, 'createdAt')}
                             className="w-full px-4 py-2 bg-gray-100 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500"
                             dateFormat="MMMM d, yyyy"
+                            isClearable
                         />
                     </div>
                 </div>

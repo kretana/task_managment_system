@@ -37,9 +37,9 @@ export const getTaskById = createAsyncThunk('tasks/getTaskById', async (id: numb
 
 
 export const editTaskById = createAsyncThunk(
-    'tasks/createTask',
+    'tasks/editTask',
     async (taskData: Task) => {
-        const response = await axios.post(`${URL}/tasks`, taskData);
+        const response = await axios.put(`${URL}/tasks/${taskData.id}`, taskData);
         return response.data;
     }
 );

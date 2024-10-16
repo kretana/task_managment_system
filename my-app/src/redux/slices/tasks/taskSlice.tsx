@@ -80,9 +80,13 @@ const tasksSlice = createSlice({
                 state.status = 'loading';
             })
             .addCase(editTaskById.fulfilled, (state, action: PayloadAction<Task>) => {
-                debugger
                 state.status = 'succeeded';
-                state.selectedTask = action.payload;
+                const updatedTask = action.payload;
+                const index = state.tasks.findIndex(task => task.id === updatedTask.id);
+                if (index !== -1) {
+                    state.tasks[index] = updatedTask;
+                }
+                state.selectedTask = updatedTask;
                 state.error = null;
             })
             .addCase(editTaskById.rejected, (state, action) => {
