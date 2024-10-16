@@ -7,3 +7,10 @@ export const columns = [
     { columnKey: 'ready-testing', status: 'Ready Testing' },
     { columnKey: 'closed', status: 'Closed' },
 ];
+
+export const options = [
+    { value: 'one', label: 'New Task' },
+    { value: 'two', label: 'In Progress'},
+    { value: 'three', label: 'Ready Testing'},
+    { value: 'four', label: 'Closed'},
+];

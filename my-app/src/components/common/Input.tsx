@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 interface InputProps {
     label?: string;
@@ -10,6 +10,8 @@ interface InputProps {
     labelClassName?: string;
     inputClassName?: string;
     required?: boolean;
+    name?: string;
+    useBottomBorderOnly?: boolean;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -18,15 +20,46 @@ const Input: React.FC<InputProps> = ({
                                          value,
                                          onChange,
                                          placeholder,
-                                         className = '', // Container class
-                                         labelClassName = '', // Label class
-                                         inputClassName = '', // Input class
+                                         className = '',
+                                         labelClassName = '',
+                                         inputClassName = '',
                                          required = false,
+                                         name,
+                                         useBottomBorderOnly = false,
                                      }) => {
+    const [isFocused, setIsFocused] = useState(false);
+
+    const handleFocus = () => {
+        setIsFocused(true);
+    };
+
+    const handleBlur = () => {
+        setIsFocused(false);
+    };
+
+    const getInputClassName = () => {
+        if (useBottomBorderOnly) {
+            return `
+                w-full px-3 py-2 text-gray-700
+                border-b 
+                ${isFocused ? 'border-indigo-500' : 'border-gray-300'}
+                focus:outline-none focus:border-indigo-500
+                transition-colors bg-transparent
+                ${inputClassName}
+            `;
+        } else {
+            return `
+                border border-gray-300
+                ${inputClassName}
+                w-full px-4 py-3 transition duration-300 ease-in-out
+            `;
+        }
+    };
+
     return (
         <div className={`input-container ${className}`}>
             {label && (
-                <label className={`block mb-1 font-medium text-gray-700 ${labelClassName}`}>
+                <label className={`block text-sm font-medium text-gray-700 mb-1 ${labelClassName}`}>
                     {label}
                 </label>
             )}
@@ -35,8 +68,11 @@ const Input: React.FC<InputProps> = ({
                 value={value}
                 onChange={onChange}
                 placeholder={placeholder}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 required={required}
-                className={`mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-600 focus:border-indigo-600 transition duration-300 ease-in-out hover:shadow-md ${inputClassName}`}
+                name={name}
+                className={getInputClassName()}
             />
         </div>
     );

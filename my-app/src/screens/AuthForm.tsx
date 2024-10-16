@@ -20,7 +20,6 @@ export const AuthForm: React.FC = () => {
         try {
             await dispatch(login({ username, password })).unwrap();
             navigate('/dashboard');
-
         } catch (error: any) {
             console.log('Failed to login. Please check your credentials.');
         }
@@ -42,9 +41,9 @@ export const AuthForm: React.FC = () => {
                             placeholder="Enter your username"
                             className="mt-4"
                             labelClassName="text-black"
-                            inputClassName="bg-gray-50"
+                            inputClassName="mt-1 block w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none transition duration-300 ease-in-out"
                             required
-                            />
+                        />
                     </div>
                     <div>
                         <Input
@@ -55,13 +54,13 @@ export const AuthForm: React.FC = () => {
                             placeholder="Enter your password"
                             className="mt-4"
                             labelClassName="text-black"
-                            inputClassName="bg-gray-50"
+                            inputClassName="mt-1 block w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none transition duration-300 ease-in-out"
                             required
                         />
                     </div>
                     {error && (
                         <p className="text-red-500 text-center text-sm">
-                            {error && 'Failed to login. Please check your credentials.'}
+                            Failed to login. Please check your credentials.
                         </p>
                     )}
                     <div className="flex items-center justify-center">
@@ -69,7 +68,7 @@ export const AuthForm: React.FC = () => {
                             label={loading ? 'Loading...' : 'Submit'}
                             disabled={loading}
                             className="w-full py-3 bg-indigo-600 text-white rounded-lg shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 transition duration-300 ease-in-out disabled:opacity-50"
-                            type={"submit"}
+                            type="submit"
                         />
                     </div>
                 </form>

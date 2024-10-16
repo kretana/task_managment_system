@@ -1,22 +1,27 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { fetchTasks, updateTask } from './authTasks';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {editTaskById, fetchTasks, getTaskById, updateTask} from './authTasks';
 
 export interface Task {
     id: number;
     name: string;
     status: string;
-    description:string;
-    title:string;
+    description: string;
+    title: string;
+    createdAt: Date;
+    updatedAt: Date;
+    completedAt: Date;
 }
 
 interface TasksState {
     tasks: Task[];
+    selectedTask?: Task;
     status: 'idle' | 'loading' | 'succeeded' | 'failed';
     error: string | null;
 }
 
 const initialState: TasksState = {
     tasks: [],
+    selectedTask: undefined,
     status: 'idle',
     error: null,
 };
@@ -27,6 +32,7 @@ const tasksSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
+            // get all the tasks
             .addCase(fetchTasks.pending, (state) => {
                 state.status = 'loading';
             })
@@ -39,6 +45,20 @@ const tasksSlice = createSlice({
                 state.status = 'failed';
                 state.error = action.error.message || 'Failed to fetch tasks';
             })
+            // get task by id
+            .addCase(getTaskById.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(getTaskById.fulfilled, (state, action: PayloadAction<Task>) => {
+                state.status = 'succeeded';
+                state.selectedTask = action.payload;
+                state.error = null;
+            })
+            .addCase(getTaskById.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.error.message || 'Failed to fetch the task';
+            })
+            // update a specific task
             .addCase(updateTask.pending, (state) => {
                 state.status = 'loading';
             })
@@ -54,6 +74,20 @@ const tasksSlice = createSlice({
             .addCase(updateTask.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.error.message || 'Failed to update task';
+            })
+            // edit task by id,put
+            .addCase(editTaskById.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(editTaskById.fulfilled, (state, action: PayloadAction<Task>) => {
+                debugger
+                state.status = 'succeeded';
+                state.selectedTask = action.payload;
+                state.error = null;
+            })
+            .addCase(editTaskById.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.error.message || 'Failed to edit task';
             });
     },
 });
