@@ -43,7 +43,7 @@
       "id": "4",
       "name": "User3",
       "title": "Implement File Upload",
-      "status": "In Progress",
+      "status": "Ready Testing",
       "description": "Add functionality for users to upload."
     },
     {
@@ -57,7 +57,7 @@
       "id": "6",
       "name": "User5",
       "title": "Integrate Payment Gateway",
-      "status": "In Progress",
+      "status": "Ready Testing",
       "description": "Integrate Stripe payment gateway."
     },
     {
@@ -71,21 +71,21 @@
       "id": "8",
       "name": "User7",
       "title": "Refactor CSS to Tailwind",
-      "status": "Ready Testing",
+      "status": "Closed",
       "description": "Convert existing CSS to use Tailwind."
     },
     {
       "id": "9",
       "name": "User8",
       "title": "Set Up CI/CD Pipeline",
-      "status": "Ready Testing",
+      "status": "New Task",
       "description": "Configure GitHub Actions."
     },
     {
       "id": "10",
       "name": "User9",
       "title": "Implement Real-time",
-      "status": "Ready Testing",
+      "status": "New Task",
       "description": "Add WebSocket-based real-time."
     },
     {

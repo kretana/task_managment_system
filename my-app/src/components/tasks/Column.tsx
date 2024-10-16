@@ -24,24 +24,34 @@ export const Column: React.FC<ColumnProps> = React.memo(({ status, tasks }) => {
 
     return (
         <div
-            ref={drop}
             className={`
-        bg-gray-100 rounded-lg p-4 
-        h-[calc(100vh-12rem)]
+        rounded-lg shadow-md overflow-hidden
+        h-[calc(100vh-12rem)] min-w-[250px]
         flex flex-col
         transition-all duration-200
-        ${isOver ? 'shadow-lg ring-2 ring-blue-300' : 'shadow'}
+        ${isOver ? 'ring-2 ring-blue-400 shadow-lg' : ''}
       `}
         >
-            <h2 className="text-lg font-bold mb-4 text-gray-700 flex items-center">
-                <span className="w-3 h-3 bg-blue-500 rounded-full mr-2"></span>
+            <h2 className="text-lg font-bold p-4 bg-white border-b border-gray-200 flex items-center justify-between">
                 {status}
-                <span className="ml-auto text-sm font-normal text-gray-500">{tasks.length}</span>
+                <span className="text-sm font-normal text-gray-500 bg-gray-100 px-2 py-1 rounded-full">{tasks.length}</span>
             </h2>
-            <div className="flex-grow overflow-y-auto pr-2 -mr-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+            <div
+                ref={drop}
+                className={`
+          flex-grow overflow-y-auto p-4 space-y-3 
+          scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent
+          ${isOver ? 'bg-blue-50' : ''}
+        `}
+            >
                 {tasks.map((task) => (
                     <TaskItem key={task.id} task={task} />
                 ))}
+                {tasks.length === 0 && (
+                    <div className="text-gray-400 text-center py-4">
+                        No tasks in this column
+                    </div>
+                )}
             </div>
         </div>
     );
