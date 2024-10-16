@@ -23,77 +23,110 @@
       "name": "Kretana",
       "title": " User Authentication",
       "status": "In Progress",
-      "description": "Set up JWT-based authentication."
+      "description": "Set up JWT-based authentication.",
+      "createdAt": "2024-10-16T10:00:00Z",
+      "updatedAt": "2024-10-16T12:00:00Z",
+      "completedAt": "2024-10-17T15:00:00Z"
     },
     {
       "id": "2",
       "name": "User1",
       "title": "Design Landing Page",
       "status": "Closed",
-      "description": "Create a responsive design."
+      "description": "Create a responsive design.",
+      "createdAt": "2024-10-26T10:00:00Z",
+      "updatedAt": "2024-10-26T12:00:00Z",
+      "completedAt": "2024-30-17T15:00:00Z"
     },
     {
       "id": "3",
       "name": "User2",
       "title": "Optimize Database Queries",
       "status": "New Task",
-      "description": "Review and optimize slow-performing."
+      "description": "Review and optimize slow-performing.",
+      "createdAt": "2024-10-10T10:00:00Z",
+      "updatedAt": "2024-10-11T12:00:00Z",
+      "completedAt": "2024-10-14T15:00:00Z"
     },
     {
       "id": "4",
       "name": "User3",
       "title": "Implement File Upload",
       "status": "Ready Testing",
-      "description": "Add functionality for users to upload."
+      "description": "Add functionality for users to upload.",
+      "createdAt": "2024-09-16T10:00:00Z",
+      "updatedAt": "2024-10-17T12:00:00Z",
+      "completedAt": "2024-10-20T15:00:00Z"
     },
     {
       "id": "5",
       "name": "User4",
       "title": "Write Unit Tests",
       "status": "Closed",
-      "description": "Create comprehensive unit tests."
+      "description": "Create comprehensive unit tests.",
+      "createdAt": "2024-08-10T10:00:00Z",
+      "updatedAt": "2024-10-11T12:00:00Z",
+      "completedAt": "2024-10-15T15:00:00Z"
     },
     {
       "id": "6",
       "name": "User5",
       "title": "Integrate Payment Gateway",
-      "status": "Ready Testing",
-      "description": "Integrate Stripe payment gateway."
+      "status": "In Progress",
+      "description": "Integrate Stripe payment gateway.",
+      "createdAt": "2024-08-16T10:00:00Z",
+      "updatedAt": "2024-08-16T12:00:00Z",
+      "completedAt": "2024-08-17T15:00:00Z"
     },
     {
       "id": "7",
       "name": "User6",
       "title": "Implement Dark Mode",
       "status": "New Task",
-      "description": "Add a dark mode option."
+      "description": "Add a dark mode option.",
+      "createdAt": "2024-12-16T10:00:00Z",
+      "updatedAt": "2024-12-18T12:00:00Z",
+      "completedAt": "2024-12-28T15:00:00Z"
     },
     {
       "id": "8",
       "name": "User7",
       "title": "Refactor CSS to Tailwind",
       "status": "Closed",
-      "description": "Convert existing CSS to use Tailwind."
+      "description": "Convert existing CSS to use Tailwind.",
+      "createdAt": "2024-02-16T10:00:00Z",
+      "updatedAt": "2024-02-16T12:00:00Z",
+      "completedAt": "2024-02-17T15:00:00Z"
     },
     {
       "id": "9",
       "name": "User8",
       "title": "Set Up CI/CD Pipeline",
       "status": "New Task",
-      "description": "Configure GitHub Actions."
+      "description": "Configure GitHub Actions.",
+      "createdAt": "2024-12-16T10:00:00Z",
+      "updatedAt": "2024-12-16T12:00:00Z",
+      "completedAt": "2024-12-17T15:00:00Z"
     },
     {
       "id": "10",
       "name": "User9",
       "title": "Implement Real-time",
       "status": "New Task",
-      "description": "Add WebSocket-based real-time."
+      "description": "Add WebSocket-based real-time.",
+      "createdAt": "2024-03-16T10:00:00Z",
+      "updatedAt": "2024-03-16T12:00:00Z",
+      "completedAt": "2024-03-17T15:00:00Z"
     },
     {
       "id": "14",
       "name": "User10",
       "title": "Set Up Analytics",
       "status": "Ready Testing",
-      "description": "Integrate Google Analytics."
+      "description": "Integrate Google Analytics.",
+      "createdAt": "2024-04-16T10:00:00Z",
+      "updatedAt": "2024-04-16T12:00:00Z",
+      "completedAt": "2024-04-20T15:00:00Z"
     }
   ]
 }
