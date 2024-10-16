@@ -4,7 +4,8 @@ import {useDispatch, useSelector} from "react-redux";
 import { login } from "../redux/slices/auth/authThunk";
 import {RootState} from "../redux/store";
 import { AppDispatch } from "../redux/store";
-
+import Input from "../components/common/Input";
+import Button from "../components/common/Button"
 
 export const AuthForm: React.FC = () => {
     const [username, setUsername] = useState<string>('');
@@ -33,30 +34,28 @@ export const AuthForm: React.FC = () => {
                 </h2>
                 <form onSubmit={handleLogin} className="space-y-8">
                     <div>
-                        <label htmlFor="username" className="block text-sm font-medium text-gray-700">
-                            Username
-                        </label>
-                        <input
+                        <Input
+                            label="Username"
                             type="text"
-                            id="username"
                             value={username}
-                            onChange={e => setUsername(e.target.value)}
-                            className="mt-2 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-600 focus:border-indigo-600 transition duration-300 ease-in-out hover:shadow-md"
+                            onChange={(e) => setUsername(e.target.value)}
                             placeholder="Enter your username"
+                            className="mt-4"
+                            labelClassName="text-black"
+                            inputClassName="bg-gray-50"
                             required
-                        />
+                            />
                     </div>
                     <div>
-                        <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                            Password
-                        </label>
-                        <input
+                        <Input
+                            label="Password"
                             type="password"
-                            id="password"
                             value={password}
-                            onChange={e => setPassword(e.target.value)}
-                            className="mt-2 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-600 focus:border-indigo-600 transition duration-300 ease-in-out hover:shadow-md"
+                            onChange={(e) => setPassword(e.target.value)}
                             placeholder="Enter your password"
+                            className="mt-4"
+                            labelClassName="text-black"
+                            inputClassName="bg-gray-50"
                             required
                         />
                     </div>
@@ -66,13 +65,12 @@ export const AuthForm: React.FC = () => {
                         </p>
                     )}
                     <div className="flex items-center justify-center">
-                        <button
-                            type="submit"
-                            className="w-full py-3 bg-indigo-600 text-white rounded-lg shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 transition duration-300 ease-in-out disabled:opacity-50"
+                        <Button
+                            label={loading ? 'Loading...' : 'Submit'}
                             disabled={loading}
-                        >
-                            {loading ? 'Logging in...' : 'Sign in'}
-                        </button>
+                            className="w-full py-3 bg-indigo-600 text-white rounded-lg shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 transition duration-300 ease-in-out disabled:opacity-50"
+                            type={"submit"}
+                        />
                     </div>
                 </form>
             </div>

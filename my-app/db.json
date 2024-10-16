@@ -21,9 +21,9 @@
     {
       "id": "1",
       "name": "Kretana",
-      "title": " User Authentication",
-      "status": "In Progress",
-      "description": "Set up JWT-based authentication.",
+      "title": "User Authentication",
+      "status": "Ready Testing",
+      "description": "Set up JWT-based authentication to ensure secure access to the application, including user registration and login processes.",
       "createdAt": "2024-10-16T10:00:00Z",
       "updatedAt": "2024-10-16T12:00:00Z",
       "completedAt": "2024-10-17T15:00:00Z"
@@ -32,8 +32,8 @@
       "id": "2",
       "name": "User1",
       "title": "Design Landing Page",
-      "status": "Closed",
-      "description": "Create a responsive design.",
+      "status": "In Progress",
+      "description": "Create a responsive design for the landing page that effectively captures user interest and provides key information about our services.",
       "createdAt": "2024-10-26T10:00:00Z",
       "updatedAt": "2024-10-26T12:00:00Z",
       "completedAt": "2024-30-17T15:00:00Z"
@@ -42,8 +42,8 @@
       "id": "3",
       "name": "User2",
       "title": "Optimize Database Queries",
-      "status": "In Progress",
-      "description": "Review and optimize slow-performing.",
+      "status": "Ready Testing",
+      "description": "Review and optimize slow-performing database queries to improve application performance and ensure efficient data retrieval.",
       "createdAt": "2024-10-10T10:00:00Z",
       "updatedAt": "2024-10-11T12:00:00Z",
       "completedAt": "2024-10-14T15:00:00Z"
@@ -53,7 +53,7 @@
       "name": "User3",
       "title": "Implement File Upload",
       "status": "Closed",
-      "description": "Add functionality for users to upload.",
+      "description": "Add functionality for users to upload files seamlessly, including drag-and-drop support and progress indicators.",
       "createdAt": "2024-09-16T10:00:00Z",
       "updatedAt": "2024-10-17T12:00:00Z",
       "completedAt": "2024-10-20T15:00:00Z"
@@ -62,8 +62,8 @@
       "id": "5",
       "name": "User4",
       "title": "Write Unit Tests",
-      "status": "Closed",
-      "description": "Create comprehensive unit tests.",
+      "status": "In Progress",
+      "description": "Create comprehensive unit tests for the existing codebase to ensure functionality and prevent regressions in future development.",
       "createdAt": "2024-08-10T10:00:00Z",
       "updatedAt": "2024-10-11T12:00:00Z",
       "completedAt": "2024-10-15T15:00:00Z"
@@ -73,7 +73,7 @@
       "name": "User5",
       "title": "Integrate Payment Gateway",
       "status": "In Progress",
-      "description": "Integrate Stripe payment gateway.",
+      "description": "Integrate Stripe payment gateway to enable secure online payments for users, including handling transactions and refunds.",
       "createdAt": "2024-08-16T10:00:00Z",
       "updatedAt": "2024-08-16T12:00:00Z",
       "completedAt": "2024-08-17T15:00:00Z"
@@ -82,8 +82,8 @@
       "id": "7",
       "name": "User6",
       "title": "Implement Dark Mode",
-      "status": "New Task",
-      "description": "Add a dark mode option.",
+      "status": "In Progress",
+      "description": "Add a dark mode option to the application for improved usability in low-light environments and user preference.",
       "createdAt": "2024-12-16T10:00:00Z",
       "updatedAt": "2024-12-18T12:00:00Z",
       "completedAt": "2024-12-28T15:00:00Z"
@@ -93,7 +93,7 @@
       "name": "User7",
       "title": "Refactor CSS to Tailwind",
       "status": "Closed",
-      "description": "Convert existing CSS to use Tailwind.",
+      "description": "Convert existing CSS to use Tailwind CSS for a more maintainable and scalable styling approach in the application.",
       "createdAt": "2024-02-16T10:00:00Z",
       "updatedAt": "2024-02-16T12:00:00Z",
       "completedAt": "2024-02-17T15:00:00Z"
@@ -102,8 +102,8 @@
       "id": "9",
       "name": "User8",
       "title": "Set Up CI/CD Pipeline",
-      "status": "New Task",
-      "description": "Configure GitHub Actions.",
+      "status": "Ready Testing",
+      "description": "Configure GitHub Actions for continuous integration and deployment, ensuring smooth workflow and automated testing.",
       "createdAt": "2024-12-16T10:00:00Z",
       "updatedAt": "2024-12-16T12:00:00Z",
       "completedAt": "2024-12-17T15:00:00Z"
@@ -111,9 +111,9 @@
     {
       "id": "10",
       "name": "User9",
-      "title": "Implement Real-time",
-      "status": "New Task",
-      "description": "Add WebSocket-based real-time.",
+      "title": "Implement Real-time Features",
+      "status": "In Progress",
+      "description": "Add WebSocket-based real-time features to enhance user interaction, allowing for live updates and notifications.",
       "createdAt": "2024-03-16T10:00:00Z",
       "updatedAt": "2024-03-16T12:00:00Z",
       "completedAt": "2024-03-17T15:00:00Z"
@@ -122,8 +122,8 @@
       "id": "14",
       "name": "User10",
       "title": "Set Up Analytics",
-      "status": "New Task",
-      "description": "Integrate Google Analytics.",
+      "status": "In Progress",
+      "description": "Integrate Google Analytics to track user behavior and application performance, providing insights for future improvements.",
       "createdAt": "2024-04-16T10:00:00Z",
       "updatedAt": "2024-04-16T12:00:00Z",
       "completedAt": "2024-04-20T15:00:00Z"
