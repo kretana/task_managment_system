@@ -1,20 +1,32 @@
 {
-    "users": [
-      {
-        "id": "1",
-        "username": "revelikretana@gmail.com",
-        "password": "kretana",
-        "name": "KretanaReveli",
-        "role": "admin",
-        "token": "abc123token"
-      },
-      {
-        "id": "2",
-        "username": "test",
-        "password": "password456",
-        "name": "Test",
-        "role": "developer",
-        "token": "xyz789token"
-      }
-    ]
+  "users": [
+    {
+      "id": "1",
+      "username": "revelikretana@gmail.com",
+      "password": "kretana",
+      "name": "KretanaReveli",
+      "role": "admin",
+      "token": "abc123token"
+    },
+    {
+      "id": "2",
+      "username": "test",
+      "password": "password456",
+      "name": "Test",
+      "role": "developer",
+      "token": "xyz789token"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "1",
+      "name": "Task 1",
+      "status": "New Task"
+    },
+    {
+      "id": "2",
+      "name": "Task 2",
+      "status": "New Task"
+    }
+  ]
 }
