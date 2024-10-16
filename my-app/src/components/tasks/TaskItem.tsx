@@ -6,7 +6,6 @@ interface TaskItemProps {
     task: Task;
 }
 
-
 export const TaskItem: React.FC<TaskItemProps> = React.memo(({ task }) => {
     const [, drag] = useDrag({
         type: 'TASK',

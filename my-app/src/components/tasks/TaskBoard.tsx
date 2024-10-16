@@ -4,8 +4,8 @@ import { Column } from './Column';
 import {AppDispatch, RootState} from "../../redux/store";
 import {fetchTasks} from "../../redux/slices/tasks/authTasks";
 import {Task} from "../../redux/slices/tasks/taskSlice";
+import {columns} from "../../config/const";
 
-const columns = ['New Task', 'In Progress', 'Ready Testing', 'Closed'];
 
 export const TaskBoard: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -15,11 +15,15 @@ export const TaskBoard: React.FC = () => {
         dispatch(fetchTasks());
     }, [dispatch]);
 
+
     const groupedTasks = useMemo(() => {
-        return columns.reduce((acc, column) => {
-            acc[column] = tasks.filter((task) => task.status === column);
-            return acc;
-        }, {} as Record<string, Task[]>);
+        const grouped = {} as Record<string, Task[]>;
+
+        columns.forEach((column) => {
+            grouped[column.status] = tasks.filter((task) => task.status === column.status);
+        });
+
+        return grouped;
     }, [tasks]);
 
 
@@ -39,11 +43,11 @@ export const TaskBoard: React.FC = () => {
         <div className="bg-gray-50 min-h-screen p-8">
             <h1 className="text-3xl font-bold text-gray-800 mb-8">Task Board</h1>
             <div className="grid grid-cols-4 gap-6">
-                {columns.map((status) => (
+                {columns.map((column) => (
                     <Column
-                        key={status}
-                        status={status}
-                        tasks={groupedTasks[status]}
+                        key={column.columnKey}
+                        status={column.status}
+                        tasks={groupedTasks[column.status]}
                     />
                 ))}
             </div>
