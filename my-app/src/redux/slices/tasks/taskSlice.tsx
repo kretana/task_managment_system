@@ -5,6 +5,8 @@ export interface Task {
     id: number;
     name: string;
     status: string;
+    description:string;
+    title:string;
 }
 
 interface TasksState {

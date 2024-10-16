@@ -20,13 +20,80 @@
   "tasks": [
     {
       "id": "1",
-      "name": "Task 1",
-      "status": "New Task"
+      "name": "Kretana",
+      "title": " User Authentication",
+      "status": "In Progress",
+      "description": "Set up JWT-based authentication."
     },
     {
       "id": "2",
-      "name": "Task 2",
-      "status": "Closed"
+      "name": "User1",
+      "title": "Design Landing Page",
+      "status": "Closed",
+      "description": "Create a responsive design."
+    },
+    {
+      "id": "3",
+      "name": "User2",
+      "title": "Optimize Database Queries",
+      "status": "New Task",
+      "description": "Review and optimize slow-performing."
+    },
+    {
+      "id": "4",
+      "name": "User3",
+      "title": "Implement File Upload",
+      "status": "In Progress",
+      "description": "Add functionality for users to upload."
+    },
+    {
+      "id": "5",
+      "name": "User4",
+      "title": "Write Unit Tests",
+      "status": "Closed",
+      "description": "Create comprehensive unit tests."
+    },
+    {
+      "id": "6",
+      "name": "User5",
+      "title": "Integrate Payment Gateway",
+      "status": "In Progress",
+      "description": "Integrate Stripe payment gateway."
+    },
+    {
+      "id": "7",
+      "name": "User6",
+      "title": "Implement Dark Mode",
+      "status": "New Task",
+      "description": "Add a dark mode option."
+    },
+    {
+      "id": "8",
+      "name": "User7",
+      "title": "Refactor CSS to Tailwind",
+      "status": "Ready Testing",
+      "description": "Convert existing CSS to use Tailwind."
+    },
+    {
+      "id": "9",
+      "name": "User8",
+      "title": "Set Up CI/CD Pipeline",
+      "status": "Ready Testing",
+      "description": "Configure GitHub Actions."
+    },
+    {
+      "id": "10",
+      "name": "User9",
+      "title": "Implement Real-time",
+      "status": "Ready Testing",
+      "description": "Add WebSocket-based real-time."
+    },
+    {
+      "id": "14",
+      "name": "User10",
+      "title": "Set Up Analytics",
+      "status": "Ready Testing",
+      "description": "Integrate Google Analytics."
     }
   ]
 }
