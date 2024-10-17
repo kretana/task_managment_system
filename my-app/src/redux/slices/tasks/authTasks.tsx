@@ -3,8 +3,6 @@ import axios from 'axios';
 import {URL} from '../../../config/const'
 import {Task, TaskUpdate} from "../../../types/taskTypes";
 
-
-
 export const fetchTasks = createAsyncThunk('tasks/fetchTasks', async () => {
     const response = await axios.get(`${URL}/tasks`);
     return response.data;
@@ -48,7 +46,24 @@ export const deleteTaskById = createAsyncThunk(
             await axios.delete(`${URL}/tasks/${taskId}`);
             return taskId;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error.response?.data?.message || "Failed to edit task");
+
+        }
+    }
+);
+
+export const createTask = createAsyncThunk(
+    "tasks/createTask",
+    async (newTask: Task, { rejectWithValue }) => {
+        try {
+            const response = await axios.post(`${URL}/tasks`, newTask, {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            return response.data;
+        } catch (error: any) {
+            return rejectWithValue(error.response?.data?.message || "Failed to create task");
         }
     }
 );

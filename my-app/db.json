@@ -19,17 +19,14 @@
   ],
   "tasks": [
     {
-      "id": "3",
-      "name": "KretanaTestTESTETSET",
-      "title": "Optimize Database Queries",
-      "status": "New Task",
-      "description": "Review and optimize slow-performing database queries to improve application performance and ensure efficient data retrieval.",
-      "createdAt": "2024-10-10T10:00:00.000Z",
-      "updatedAt": "2024-10-11T12:00:00.000Z",
-      "completedAt": "2024-10-17T15:00:00.000Z",
-      "file": null,
-      "estimation": "7 day(s)",
-      "comment": "tetetetstststs"
+      "id": "5",
+      "name": "User45454",
+      "title": "Write Unit Tests",
+      "description": "Create comprehensive unit tests for the existing codebase to ensure functionality and prevent regressions in future development.",
+      "status": "Ready Testing",
+      "createdAt": "2024-10-10T10:00:00Z",
+      "updatedAt": "2024-10-11T12:00:00Z",
+      "completedAt": "2024-10-14T15:00:00Z"
     },
     {
       "id": "6",
@@ -45,7 +42,7 @@
       "id": "7",
       "name": "User6",
       "title": "Implement Dark Mode",
-      "status": "Closed",
+      "status": "In Progress",
       "description": "Add a dark mode option to the application for improved usability in low-light environments and user preference.",
       "createdAt": "2024-10-10T10:00:00Z",
       "updatedAt": "2024-10-11T12:00:00Z",
@@ -55,51 +52,8 @@
       "id": "8",
       "name": "User7",
       "title": "Refactor CSS to Tailwind",
-      "status": "Ready Testing",
-      "description": "Convert existing CSS to use Tailwind CSS for a more maintainable and scalable styling approach in the application.",
-      "createdAt": "2024-10-10T10:00:00Z",
-      "updatedAt": "2024-10-11T12:00:00Z",
-      "completedAt": "2024-10-14T15:00:00Z"
-    },
-    {
-      "id": "9",
-      "name": "User8",
-      "title": "Set Up CI/CD Pipeline",
       "status": "Closed",
-      "description": "Configure GitHub Actions for continuous integration and deployment, ensuring smooth workflow and automated testing.",
-      "createdAt": "2024-10-10T10:00:00Z",
-      "updatedAt": "2024-10-11T12:00:00Z",
-      "completedAt": "2024-10-14T15:00:00Z"
-    },
-    {
-      "id": "10",
-      "name": "User988",
-      "title": "Implement Real-time Features",
-      "status": "In Progress",
-      "description": "Add WebSocket-based real-time features to enhance user interaction, allowing for live updates and notifications.",
-      "createdAt": "2024-10-10T10:00:00.000Z",
-      "updatedAt": "2024-10-11T12:00:00.000Z",
-      "completedAt": "2024-10-14T15:00:00.000Z"
-    },
-    {
-      "id": "14",
-      "name": "User10",
-      "title": "Set Up Analytics",
-      "status": "Ready Testing",
-      "description": "Integrate Google Analytics to track user behavior and application performance, providing insights for future improvements.",
-      "createdAt": "2024-10-10T10:00:00Z",
-      "updatedAt": "2024-10-11T12:00:00Z",
-      "completedAt": "2024-10-14T15:00:00Z"
-    },
-    {
-      "id": "6e13"
-    },
-    {
-      "id": "5",
-      "name": "testinguser4",
-      "title": "Write Unit Tests",
-      "description": "Create comprehensive unit tests for the existing codebase to ensure functionality and prevent regressions in future development.",
-      "status": "In Progress",
+      "description": "Convert existing CSS to use Tailwind CSS for a more maintainable and scalable styling approach in the application.",
       "createdAt": "2024-10-10T10:00:00Z",
       "updatedAt": "2024-10-11T12:00:00Z",
       "completedAt": "2024-10-14T15:00:00Z"

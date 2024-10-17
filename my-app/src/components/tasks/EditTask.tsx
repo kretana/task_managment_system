@@ -10,11 +10,9 @@ import useTaskEstimation from "../../hooks/useTaskEstimation";
 
 export const EditTask: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
-    const { id } = useParams<{ id: string }>();
+    const { id } = useParams<{ id: any }>();
     const selectedTask = useSelector((state: RootState) => state.tasks.selectedTask);
     const navigate = useNavigate();
-
-
 
     const [taskData, setTaskData] = useState<Task>({
         name: '',
@@ -37,7 +35,7 @@ export const EditTask: React.FC = () => {
 
     useEffect(() => {
         if (id) {
-            dispatch(getTaskById(parseInt(id)));
+            dispatch(getTaskById(id));
         }
     }, [id, dispatch]);
 
@@ -63,7 +61,7 @@ export const EditTask: React.FC = () => {
         if (id) {
             const confirmDelete = window.confirm("Are you sure you want to delete this task?");
             if (confirmDelete) {
-                dispatch(deleteTaskById(Number(taskData.id))).then(() => {
+                dispatch(deleteTaskById(id)).then(() => {
                     navigate("/dashboard");
                 });
             }

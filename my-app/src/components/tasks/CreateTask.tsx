@@ -3,14 +3,17 @@ import Button from "../common/Button";
 import TaskForm from "../common/TaskForm";
 import {Task} from "../../types/taskTypes";
 import useTaskEstimation from "../../hooks/useTaskEstimation";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {createTask} from "../../redux/slices/tasks/authTasks";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "../../redux/store";
 
 export const CreateTask = () => {
     const [taskData, setTaskData] = useState<Task>({
         name: '',
         title: '',
         description: '',
-        status: '',
+        status: 'New Task',
         updatedAt: null,
         completedAt: null,
         createdAt: null,
@@ -20,13 +23,21 @@ export const CreateTask = () => {
     });
 
     const estimation = useTaskEstimation(taskData);
+    const dispatch = useDispatch<AppDispatch>();
+    const navigate = useNavigate();
 
     useEffect(() => {
         setTaskData(prev => ({ ...prev, estimation }));
     }, [estimation]);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        try {
+            await dispatch(createTask(taskData)).unwrap();
+            navigate("/dashboard");
+        } catch (err) {
+            console.error("Failed to create task", err);
+        }
     };
 
     return (

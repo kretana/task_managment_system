@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {deleteTaskById, editTaskById, fetchTasks, getTaskById, updateTask} from './authTasks';
+import {createTask, deleteTaskById, editTaskById, fetchTasks, getTaskById, updateTask} from './authTasks';
 import {Task, TasksState} from "../../../types/taskTypes";
 
 
@@ -80,9 +80,22 @@ const tasksSlice = createSlice({
 
         // delete operation
         builder.addCase(deleteTaskById.fulfilled, (state, action) => {
-            debugger
             state.tasks = state.tasks.filter(task => task.id !== action.payload);
         });
+
+        // Handle createTask action
+        builder.addCase(createTask.pending, (state) => {
+            state.status = 'loading';
+        });
+        builder.addCase(createTask.fulfilled, (state, action) => {
+            state.status = 'succeeded';
+            state.tasks.push(action.payload);
+        });
+        builder.addCase(createTask.rejected, (state, action) => {
+            state.status = 'failed';
+            state.error = action.error.message || 'Failed to create task';
+        });
+
 
     },
 });

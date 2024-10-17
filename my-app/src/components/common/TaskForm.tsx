@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import Input from "../common/Input";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
