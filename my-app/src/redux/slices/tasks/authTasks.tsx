@@ -1,12 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import {URL} from '../../../config/const'
-import {Task} from "./taskSlice";
+import {Task, TaskUpdate} from "../../../types/taskTypes";
 
-interface TaskUpdate {
-    id: number;
-    status: string;
-}
 
 
 export const fetchTasks = createAsyncThunk('tasks/fetchTasks', async () => {

@@ -9,8 +9,8 @@ import Button from "../common/Button";
 import "react-datepicker/dist/react-datepicker.css";
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
-import {Task} from "../../redux/slices/tasks/taskSlice";
 import {options} from "../../config/const";
+import {Task} from "../../types/taskTypes";
 
 
 export const EditTask: React.FC = () => {
@@ -29,6 +29,7 @@ export const EditTask: React.FC = () => {
         createdAt: null,
         comment: '',
         file: null,
+        estimation:"",
     });
 
     useEffect(() => {

@@ -1,13 +1,13 @@
 import React from 'react';
 import { useDrop } from 'react-dnd';
 import { useDispatch } from 'react-redux';
-
 import { TaskItem } from './TaskItem';
 import {AppDispatch} from "../../redux/store";
 import {updateTask} from "../../redux/slices/tasks/authTasks";
-import {Task} from "../../redux/slices/tasks/taskSlice";
+import {Task} from "../../types/taskTypes";
 
-interface ColumnProps {
+
+ interface ColumnProps {
     status: string;
     tasks: Task[];
 }

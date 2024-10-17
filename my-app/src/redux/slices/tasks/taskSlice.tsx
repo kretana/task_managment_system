@@ -1,25 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {deleteTaskById, editTaskById, fetchTasks, getTaskById, updateTask} from './authTasks';
+import {Task, TasksState} from "../../../types/taskTypes";
 
-export interface Task {
-    id?: number;
-    name: string;
-    status: string;
-    description: string;
-    title: string;
-    createdAt: Date;
-    updatedAt: Date;
-    completedAt: Date;
-    file:File;
-    comment:string;
-}
-
-interface TasksState {
-    tasks: Task[];
-    selectedTask?: Task;
-    status: 'idle' | 'loading' | 'succeeded' | 'failed';
-    error: string | null;
-}
 
 const initialState: TasksState = {
     tasks: [],

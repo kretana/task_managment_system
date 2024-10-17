@@ -12,7 +12,7 @@ export const CreateTask = () => {
     const [createdDate, setCreatedDate] = useState<Date | null>(null);
     const [updatedDate, setUpdatedDate] = useState<Date | null>(null);
     const [completedDate, setCompletedDate] = useState<Date | null>(null);
-
+   const [comment , addComment] = useState("")
 
     const [estimation, setEstimation] = useState('');
 
@@ -90,6 +90,25 @@ export const CreateTask = () => {
             <div>
                 <div>Estimation</div>
                 <Input value={estimation}  className="rounded-md py-2 mb-4"   />
+            </div>
+
+
+            <textarea
+                name="comment"
+                value={comment}
+                onChange={(e)=>addComment(e.target.value)}
+                placeholder="Enter comments..."
+                rows={2}
+                className="w-full mb-4 p-4 text-gray-700 bg-gray-100 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500 transition-colors resize-none"
+
+            />
+
+            <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700 mb-2">Upload File</label>
+                <input
+                    type="file"
+                    className="w-full p-2 border border-gray-300 rounded-md"
+                />
             </div>
 
             <Button type="submit" label="Create New Task"  className="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-md shadow-lg hover:bg-indigo-700 transition-colors duration-300 ease-in-out"

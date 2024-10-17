@@ -1,14 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import {URL} from '../../../config/const'
+import {User} from "../../../types/authTypes";
 
-
-
-interface User {
-    id: string;
-    name: string;
-    role: string;
-}
 
 export const login = createAsyncThunk<
     { user: User; token: string },

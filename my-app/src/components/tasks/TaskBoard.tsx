@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Column } from './Column';
 import {AppDispatch, RootState} from "../../redux/store";
 import {fetchTasks} from "../../redux/slices/tasks/authTasks";
-import {Task} from "../../redux/slices/tasks/taskSlice";
 import {columns} from "../../config/const";
 import {Link} from "react-router-dom";
+import {Task} from "../../types/taskTypes";
 
 
 export const TaskBoard: React.FC = () => {

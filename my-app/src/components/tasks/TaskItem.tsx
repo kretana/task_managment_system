@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDrag } from 'react-dnd';
 import { Link } from 'react-router-dom';
-import {Task} from "../../redux/slices/tasks/taskSlice";
 import {truncateDescription} from "../../utils/truncateDescription";
+import {Task} from "../../types/taskTypes";
 
 interface TaskItemProps {
     task: Task;
