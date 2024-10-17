@@ -6,7 +6,6 @@ export interface Task {
     description: string;
     title: string;
     createdAt: Date;
-    updatedAt: Date;
     completedAt: Date;
     file:File;
     comment:string;

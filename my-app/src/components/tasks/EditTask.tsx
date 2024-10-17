@@ -19,7 +19,6 @@ export const EditTask: React.FC = () => {
         title: '',
         description: '',
         status: '',
-        updatedAt: null,
         completedAt: null,
         createdAt: null,
         comment: '',
@@ -30,22 +29,19 @@ export const EditTask: React.FC = () => {
     const estimation = useTaskEstimation(taskData);
 
     useEffect(() => {
-        if (id && !selectedTask) {
             dispatch(getTaskById(id));
-        }
-    }, [id, dispatch, selectedTask]);
+    }, [id, dispatch]);
 
     useEffect(() => {
         if (selectedTask) {
             setTaskData({
                 ...selectedTask,
-                estimation,
-                createdAt: selectedTask.createdAt ? new Date(selectedTask.createdAt) : null,
-                updatedAt: selectedTask.updatedAt ? new Date(selectedTask.updatedAt) : null,
-                completedAt: selectedTask.completedAt ? new Date(selectedTask.completedAt) : null,
             });
         }
-    }, [selectedTask, estimation]);
+        if(estimation){
+            setTaskData(prev => ({ ...prev, estimation }));
+        }
+    }, [selectedTask]);
 
     const handleSubmit = useCallback(async (e: React.FormEvent) => {
         e.preventDefault();
@@ -68,7 +64,7 @@ export const EditTask: React.FC = () => {
             <Link to="/dashboard" className="inline-block px-6 py-2 my-5 text-blue-600 hover:text-blue-800 underline font-semibold">Back to Dashboard</Link>
             <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Edit Task</h2>
             <form onSubmit={handleSubmit} className="space-y-8">
-                <TaskForm taskData={taskData} setTaskData={(field, value) => setTaskData(prev => ({ ...prev, [field]: value }))} />
+                <TaskForm taskData={taskData} setTaskData={(field, value) => setTaskData(prev => ({ ...prev, [field]: value }))}  />
                 <div className="flex justify-between">
                     <Button type="button" label="Delete Task" className="px-6 py-3 bg-red-600 text-white font-semibold rounded-md shadow-lg hover:bg-red-700 transition-colors duration-300 ease-in-out" onClick={handleDelete} />
                     <Button type="submit" label="Update Task" className="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-md shadow-lg hover:bg-indigo-700 transition-colors duration-300 ease-in-out" />
