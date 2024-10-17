@@ -3,6 +3,7 @@ import {Dashboard} from "./Dashboard";
 import {AuthForm} from "./AuthForm";
 import PrivateRoute from "../components/PrivateRoute";
 import {EditTask} from "../components/tasks/EditTask";
+import {CreateTask} from "../components/tasks/CreateTask";
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
                 <Route element={<PrivateRoute />}>
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/edit-task/:id" element={<EditTask />}/>
+                    <Route path="/new-task" element={<CreateTask />} />
                 </Route>
             </Routes>
         </Router>

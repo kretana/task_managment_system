@@ -5,6 +5,7 @@ import {AppDispatch, RootState} from "../../redux/store";
 import {fetchTasks} from "../../redux/slices/tasks/authTasks";
 import {Task} from "../../redux/slices/tasks/taskSlice";
 import {columns} from "../../config/const";
+import {Link} from "react-router-dom";
 
 
 export const TaskBoard: React.FC = () => {
@@ -40,9 +41,13 @@ export const TaskBoard: React.FC = () => {
     }
 
     return (
-        <div className="bg-gray-50 min-h-screen p-8">
+        <div className="bg-gray-50 p-8">
             <h1 className="text-3xl font-bold text-gray-800 mb-8">Task Board</h1>
-            <div className="grid grid-cols-4 gap-6">
+            <div className="flex justify-end mb-5">
+                <Link to="/new-task" className="underline font-bold text-indigo-600 hover:text-indigo-800 transition duration-300">
+                    Create a new task
+                </Link>
+            </div>            <div className="grid grid-cols-4 gap-6">
                 {columns.map((column) => (
                     <Column
                         key={column.columnKey}

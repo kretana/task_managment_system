@@ -26,7 +26,7 @@ export const Column: React.FC<ColumnProps> = React.memo(({ status, tasks }) => {
         <div
             className={`
         rounded-lg shadow-md overflow-hidden
-        h-[calc(100vh-12rem)] min-w-[250px]
+        h-[calc(100vh-3rem)] min-w-[250px]
         flex flex-col
         transition-all duration-200
         ${isOver ? 'ring-2 ring-blue-400 shadow-lg' : ''}
