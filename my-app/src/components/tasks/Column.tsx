@@ -24,13 +24,11 @@ export const Column: React.FC<ColumnProps> = React.memo(({ status, tasks }) => {
 
     return (
         <div
-            className={`
-        rounded-lg shadow-md overflow-hidden
-        h-[calc(100vh-3rem)] min-w-[250px]
-        flex flex-col
-        transition-all duration-200
-        ${isOver ? 'ring-2 ring-blue-400 shadow-lg' : ''}
-      `}
+            className={`rounded-lg shadow-md overflow-hidden
+            flex flex-col transition-all duration-200
+            h-[calc(100vh-3rem)] min-w-[250px]
+            ${isOver ? 'ring-2 ring-blue-400 shadow-lg' : ''}
+        `}
         >
             <h2 className="text-lg font-bold p-4 bg-white border-b border-gray-200 flex items-center justify-between">
                 {status}
@@ -38,11 +36,10 @@ export const Column: React.FC<ColumnProps> = React.memo(({ status, tasks }) => {
             </h2>
             <div
                 ref={drop}
-                className={`
-          flex-grow overflow-y-auto p-4 space-y-3 
-          scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent
-          ${isOver ? 'bg-blue-50' : ''}
-        `}
+                className={`flex-grow overflow-y-auto p-4 space-y-3
+                scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent
+                ${isOver ? 'bg-blue-50' : ''}
+            `}
             >
                 {tasks.map((task) => (
                     <TaskItem key={task.id} task={task} />

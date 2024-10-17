@@ -76,6 +76,7 @@ const TaskForm = forwardRef<TaskFormRef, TaskFormProps>(({ taskData, setTaskData
                 value={taskData.name}
                 required
                 error={errors.name}
+                className="mb-4"
             />
 
             <Input

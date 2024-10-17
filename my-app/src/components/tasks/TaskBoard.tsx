@@ -41,13 +41,14 @@ export const TaskBoard: React.FC = () => {
     }
 
     return (
-        <div className="bg-gray-50 p-8">
-            <h1 className="text-3xl font-bold text-gray-800 mb-8">Task Board</h1>
+        <div className="bg-gray-50 p-4 md:p-8">
+            <h1 className="text-3xl font-bold text-gray-800 mb-4">Task Board</h1>
             <div className="flex justify-end mb-5">
                 <Link to="/new-task" className="underline font-bold text-indigo-600 hover:text-indigo-800 transition duration-300">
                     Create a new task
                 </Link>
-            </div>            <div className="grid grid-cols-4 gap-6">
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {columns.map((column) => (
                     <Column
                         key={column.columnKey}
@@ -57,5 +58,5 @@ export const TaskBoard: React.FC = () => {
                 ))}
             </div>
         </div>
-    );
+);
 };
