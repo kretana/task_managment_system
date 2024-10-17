@@ -27,7 +27,6 @@ export const EditTask: React.FC = () => {
     });
 
     const estimation = useTaskEstimation(taskData);
-
     useEffect(() => {
             dispatch(getTaskById(id));
     }, [id, dispatch]);
