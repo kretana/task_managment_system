@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import Button from "../common/Button";
 import TaskForm from "../common/TaskForm";
 import {Task} from "../../types/taskTypes";
@@ -30,7 +30,7 @@ export const CreateTask = () => {
         setTaskData(prev => ({ ...prev, estimation }));
     }, [estimation]);
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = useCallback(async (e: React.FormEvent) => {
         e.preventDefault();
         try {
             await dispatch(createTask(taskData)).unwrap();
@@ -38,7 +38,7 @@ export const CreateTask = () => {
         } catch (err) {
             console.error("Failed to create task", err);
         }
-    };
+    }, [dispatch, taskData, navigate]);
 
     return (
         <div className="bg-white p-6 rounded-md shadow-md">

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../redux/store";
 import { deleteTaskById, editTaskById, getTaskById } from "../../redux/slices/tasks/authTasks";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Button from "../common/Button";
 import TaskForm from "../common/TaskForm";
-import {Task} from "../../types/taskTypes";
+import { Task } from "../../types/taskTypes";
 import useTaskEstimation from "../../hooks/useTaskEstimation";
 
 export const EditTask: React.FC = () => {
@@ -24,49 +24,44 @@ export const EditTask: React.FC = () => {
         createdAt: null,
         comment: '',
         file: null,
-        estimation:"",
+        estimation: "",
     });
 
     const estimation = useTaskEstimation(taskData);
 
     useEffect(() => {
-        setTaskData(prev => ({ ...prev, estimation }));
-    }, [estimation]);
-
-    useEffect(() => {
-        if (id) {
+        if (id && !selectedTask) {
             dispatch(getTaskById(id));
         }
-    }, [id, dispatch]);
+    }, [id, dispatch, selectedTask]);
 
     useEffect(() => {
         if (selectedTask) {
             setTaskData({
                 ...selectedTask,
+                estimation,
                 createdAt: selectedTask.createdAt ? new Date(selectedTask.createdAt) : null,
                 updatedAt: selectedTask.updatedAt ? new Date(selectedTask.updatedAt) : null,
                 completedAt: selectedTask.completedAt ? new Date(selectedTask.completedAt) : null,
             });
         }
-    }, [selectedTask]);
+    }, [selectedTask, estimation]);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = useCallback(async (e: React.FormEvent) => {
         e.preventDefault();
-        dispatch(editTaskById(taskData)).then(() => {
-            navigate("/dashboard");
-        });
-    };
+        await dispatch(editTaskById(taskData));
+        navigate("/dashboard");
+    }, [taskData, dispatch, navigate]);
 
-    const handleDelete = () => {
+    const handleDelete = useCallback(async () => {
         if (id) {
             const confirmDelete = window.confirm("Are you sure you want to delete this task?");
             if (confirmDelete) {
-                dispatch(deleteTaskById(id)).then(() => {
-                    navigate("/dashboard");
-                });
+                await dispatch(deleteTaskById(id));
+                navigate("/dashboard");
             }
         }
-    };
+    }, [id, dispatch, navigate]);
 
     return (
         <div className="container mx-auto px-4 py-8 max-w-4xl bg-white shadow-lg rounded-lg">
