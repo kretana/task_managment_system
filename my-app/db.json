@@ -19,41 +19,11 @@
   ],
   "tasks": [
     {
-      "id": "1",
-      "name": "Kretanatest",
-      "title": "User Authentication",
-      "description": "Set up JWT-based authentication to ensure secure access to the application, including user registration and login processes.",
-      "status": "Closed",
-      "updatedAt": "2024-10-11T12:00:00Z",
-      "completedAt": "2024-10-14T15:00:00Z",
-      "createdAt": "2024-10-10T10:00:00Z"
-    },
-    {
-      "id": "2",
-      "name": "User1",
-      "title": "Design Landing Page",
-      "status": "New Task",
-      "description": "Create a responsive design for the landing page that effectively captures user interest and provides key information about our services.",
-      "createdAt": "2024-10-10T10:00:00Z",
-      "updatedAt": "2024-10-11T12:00:00Z",
-      "completedAt": "2024-10-14T15:00:00Z"
-    },
-    {
       "id": "3",
       "name": "User2",
       "title": "Optimize Database Queries",
-      "status": "New Task",
+      "status": "Ready Testing",
       "description": "Review and optimize slow-performing database queries to improve application performance and ensure efficient data retrieval.",
-      "createdAt": "2024-10-10T10:00:00Z",
-      "updatedAt": "2024-10-11T12:00:00Z",
-      "completedAt": "2024-10-14T15:00:00Z"
-    },
-    {
-      "id": "4",
-      "name": "User3",
-      "title": "Implement File Upload",
-      "status": "New Task",
-      "description": "Add functionality for users to upload files seamlessly, including drag-and-drop support and progress indicators.",
       "createdAt": "2024-10-10T10:00:00Z",
       "updatedAt": "2024-10-11T12:00:00Z",
       "completedAt": "2024-10-14T15:00:00Z"
@@ -72,7 +42,7 @@
       "id": "6",
       "name": "User5",
       "title": "Integrate Payment Gateway",
-      "status": "New Task",
+      "status": "In Progress",
       "description": "Integrate Stripe payment gateway to enable secure online payments for users, including handling transactions and refunds.",
       "createdAt": "2024-10-10T10:00:00Z",
       "updatedAt": "2024-10-11T12:00:00Z",
@@ -82,7 +52,7 @@
       "id": "7",
       "name": "User6",
       "title": "Implement Dark Mode",
-      "status": "New Task",
+      "status": "Closed",
       "description": "Add a dark mode option to the application for improved usability in low-light environments and user preference.",
       "createdAt": "2024-10-10T10:00:00Z",
       "updatedAt": "2024-10-11T12:00:00Z",

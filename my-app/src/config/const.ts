@@ -9,8 +9,8 @@ export const columns = [
 ];
 
 export const options = [
-    { value: 'one', label: 'New Task' },
-    { value: 'two', label: 'In Progress'},
-    { value: 'three', label: 'Ready Testing'},
-    { value: 'four', label: 'Closed'},
+    { value: 'New Task', label: 'New Task' },
+    { value: 'In Progress', label: 'In Progress'},
+    { value: 'Ready Testing', label: 'Ready Testing'},
+    { value: 'Closed', label: 'Closed'},
 ];

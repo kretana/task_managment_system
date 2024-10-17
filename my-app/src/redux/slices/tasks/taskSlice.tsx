@@ -1,8 +1,8 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {editTaskById, fetchTasks, getTaskById, updateTask} from './authTasks';
+import {deleteTaskById, editTaskById, fetchTasks, getTaskById, updateTask} from './authTasks';
 
 export interface Task {
-    id: number;
+    id?: number;
     name: string;
     status: string;
     description: string;
@@ -10,6 +10,8 @@ export interface Task {
     createdAt: Date;
     updatedAt: Date;
     completedAt: Date;
+    file:File;
+    comment:string;
 }
 
 interface TasksState {
@@ -93,6 +95,13 @@ const tasksSlice = createSlice({
                 state.status = 'failed';
                 state.error = action.error.message || 'Failed to edit task';
             });
+
+        // delete operation
+        builder.addCase(deleteTaskById.fulfilled, (state, action) => {
+            debugger
+            state.tasks = state.tasks.filter(task => task.id !== action.payload);
+        });
+
     },
 });
 
