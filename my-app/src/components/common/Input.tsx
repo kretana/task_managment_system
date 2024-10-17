@@ -12,6 +12,7 @@ interface InputProps {
     required?: boolean;
     name?: string;
     useBottomBorderOnly?: boolean;
+    error?: string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -26,6 +27,7 @@ const Input: React.FC<InputProps> = ({
                                          required = false,
                                          name,
                                          useBottomBorderOnly = false,
+                                         error,
                                      }) => {
     const [isFocused, setIsFocused] = useState(false);
 
@@ -43,13 +45,14 @@ const Input: React.FC<InputProps> = ({
                 w-full px-3 py-2 text-gray-700
                 border-b 
                 ${isFocused ? 'border-indigo-500' : 'border-gray-300'}
+                ${error ? 'border-red-500' : ''}
                 focus:outline-none focus:border-indigo-500
                 transition-colors bg-transparent
                 ${inputClassName}
             `;
         } else {
             return `
-                border border-gray-300
+                border ${error ? 'border-red-500' : 'border-gray-300'}
                 ${inputClassName}
                 w-full px-4 py-3 transition duration-300 ease-in-out
             `;
@@ -74,6 +77,7 @@ const Input: React.FC<InputProps> = ({
                 name={name}
                 className={getInputClassName()}
             />
+            {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
         </div>
     );
 };

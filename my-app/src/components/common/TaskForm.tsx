@@ -72,23 +72,21 @@ const TaskForm = forwardRef<TaskFormRef, TaskFormProps>(({ taskData, setTaskData
                 label="Name"
                 name="name"
                 placeholder="Assign task to someone"
-                className={`rounded-md py-2 mb-4 ${errors.name ? 'border-red-500' : ''}`}
                 onChange={(e) => setTaskData('name', e.target.value)}
                 value={taskData.name}
                 required
+                error={errors.name}
             />
-            {errors.name && <p className="text-red-500 text-sm mb-2">{errors.name}</p>}
 
             <Input
                 label="Title"
                 name="title"
                 placeholder="Enter task title"
-                className={`rounded-md py-2 mb-4 ${errors.title ? 'border-red-500' : ''}`}
                 onChange={(e) => setTaskData('title', e.target.value)}
                 value={taskData.title}
                 required
+                error={errors.title}
             />
-            {errors.title && <p className="text-red-500 text-sm mb-2">{errors.title}</p>}
 
             <textarea
                 name="description"
@@ -96,11 +94,10 @@ const TaskForm = forwardRef<TaskFormRef, TaskFormProps>(({ taskData, setTaskData
                 placeholder="Enter task description"
                 rows={4}
                 value={taskData.description}
-                className={`w-full p-4 text-gray-700 bg-gray-100 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500 transition-colors resize-none mb-4 ${errors.description ? 'border-red-500' : ''}`}
+                className={`w-full p-4 mt-4 text-gray-700 bg-gray-100 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500 transition-colors resize-none mb-4 ${errors.description ? 'border-red-500' : ''}`}
                 required
             />
             {errors.description && <p className="text-red-500 text-sm mb-2">{errors.description}</p>}
-
 
             <Dropdown
                 placeholder="Select an option"
@@ -121,7 +118,6 @@ const TaskForm = forwardRef<TaskFormRef, TaskFormProps>(({ taskData, setTaskData
                 />
                 {errors.createdAt && <p className="text-red-500 text-sm mt-1">{errors.createdAt}</p>}
             </div>
-
 
             <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700 mb-2">Completed Date</label>
