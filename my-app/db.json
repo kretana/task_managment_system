@@ -20,13 +20,14 @@
   "tasks": [
     {
       "id": "3",
-      "name": "Kretana",
+      "name": "KretanaTest",
       "title": "Optimize Database Queries",
-      "status": "Ready Testing",
+      "status": "New Task",
       "description": "Review and optimize slow-performing database queries to improve application performance and ensure efficient data retrieval.",
       "createdAt": "2024-10-10T10:00:00Z",
       "updatedAt": "2024-10-11T12:00:00Z",
-      "completedAt": "2024-10-14T15:00:00Z"
+      "completedAt": "2024-10-14T15:00:00Z",
+      "file": null
     },
     {
       "id": "5",
