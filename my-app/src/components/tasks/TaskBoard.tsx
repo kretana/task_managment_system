@@ -11,11 +11,12 @@ import { Tabs } from "../common/Tabs";
 import { AnaliticsReports } from "./AnaliticsReports";
 import Button from "../common/Button";
 import { logout } from "../../redux/slices/auth/authSlices";
+import {CalendarView} from "./CalendarView";
 
 export const TaskBoard: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
     const { tasks, status, error } = useSelector((state: RootState | any) => state.tasks);
-    const [activeTab, setActiveTab] = useState<'board' | 'list' | 'reports'>('board');
+    const [activeTab, setActiveTab] = useState<'board' | 'list' | 'reports' |'calendar'>('board');
     const storedUser = localStorage.getItem('user');
     const userData = storedUser ? JSON.parse(storedUser)[0] : null;
     const userName = userData ? userData.name : null;
@@ -65,6 +66,11 @@ export const TaskBoard: React.FC = () => {
             onClick: () => setActiveTab('list'),
             isActive: activeTab === 'list',
         },
+        {
+            label:'Calendar View',
+            onClick: () => setActiveTab('calendar'),
+            isActive: activeTab === "calendar"
+        }
     ];
 
     if (userRole === 'admin') {
@@ -102,7 +108,6 @@ export const TaskBoard: React.FC = () => {
                     </Link>
                 )}
             </div>
-
             {activeTab === 'board' ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {columns.map((column) => (
@@ -111,6 +116,8 @@ export const TaskBoard: React.FC = () => {
                 </div>
             ) : activeTab === 'list' ? (
                 <TaskListView tasks={filteredTasks} />
+            ) : activeTab === 'calendar' ? (
+                <CalendarView />
                 ) : (
                 userRole === 'admin' && <AnaliticsReports />
                 )}
