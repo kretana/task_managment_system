@@ -1,10 +1,14 @@
-import React, { useState, useImperativeHandle, forwardRef } from "react";
+import React, { useImperativeHandle, forwardRef, useEffect} from "react";
 import Input from "../common/Input";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Dropdown from 'react-dropdown'
 import {options} from "../../config/const";
 import 'react-dropdown/style.css';
+import { MentionsInput, Mention } from 'react-mentions';
+import {getAllUsers} from "../../redux/slices/auth/authThunk";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch} from "../../redux/store";
 
 interface TaskFormProps {
     taskData: {
@@ -16,16 +20,9 @@ interface TaskFormProps {
         estimation: string;
         comment: string;
         status:string;
+        assignedTo:string;
     };
     setTaskData: (field: string, value: any) => void;
-}
-
-interface ValidationErrors {
-    name: string;
-    title: string;
-    description: string;
-    createdAt: string;
-    completedAt: string;
 }
 
 export interface TaskFormRef {
@@ -33,32 +30,22 @@ export interface TaskFormRef {
 }
 
 const TaskForm = forwardRef<TaskFormRef, TaskFormProps>(({ taskData, setTaskData }, ref) => {
-    const [errors, setErrors] = useState<ValidationErrors>({
+    const errors = {
         name: '',
         title: '',
         description: '',
         createdAt: '',
         completedAt: '',
-    });
+    }
+    const dispatch = useDispatch<AppDispatch>();
+    const developers = useSelector((state: any) => state.auth.developers);
+
+    useEffect(() => {
+        dispatch(getAllUsers());
+    }, [dispatch]);
 
     const validateForm = (): boolean => {
-        const newErrors: ValidationErrors = {
-            name: '',
-            title: '',
-            description: '',
-            createdAt: '',
-            completedAt: '',
-        };
-
-        if (!taskData.name.trim()) newErrors.name = 'Name is required';
-        if (!taskData.title.trim()) newErrors.title = 'Title is required';
-        if (!taskData.description.trim()) newErrors.description = 'Description is required';
-        if (!taskData.createdAt) newErrors.createdAt = 'Created Date is required';
-        if (!taskData.completedAt) newErrors.completedAt = 'Completed Date is required';
-
-        setErrors(newErrors);
-
-        return Object.values(newErrors).every(error => error === '');
+        return Object.values(errors).every(error => error === '');
     };
 
     useImperativeHandle(ref, () => ({
@@ -67,18 +54,32 @@ const TaskForm = forwardRef<TaskFormRef, TaskFormProps>(({ taskData, setTaskData
 
     return (
         <div>
-            <Input
-                type="text"
-                label="Name"
-                name="name"
-                placeholder="Assign task to someone"
-                onChange={(e) => setTaskData('name', e.target.value)}
+            <label className="block text-sm font-medium text-gray-700 mb-2">Assign Task to:</label>
+            <MentionsInput
                 value={taskData.name}
-                required
-                error={errors.name}
-                useBottomBorderOnly={true}
-                className="mb-4"
-            />
+                onChange={(event, newValue, newPlainTextValue, mentions) => {
+                    const strippedValue = newPlainTextValue;
+                    if (mentions.length > 0) {
+                        const developerId = mentions[0].id;
+                        setTaskData('name', strippedValue);
+                        setTaskData('assignedTo', developerId);
+                    } else {
+                        setTaskData('name', strippedValue);
+                        setTaskData('assignedTo', null);
+                    }
+                }}
+                className={`w-full px-4 py-3 mb-4 ${errors.name ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm`}
+                placeholder="Assign task to someone"
+            >
+                <Mention
+                    trigger="@"
+                    data={developers.map(dev => ({
+                        id: dev.id,
+                        display: dev.name
+                    }))}
+                    markup="@[__id__](__display__)"
+                />
+            </MentionsInput>
 
             <Input
                 label="Title"
@@ -100,7 +101,6 @@ const TaskForm = forwardRef<TaskFormRef, TaskFormProps>(({ taskData, setTaskData
                 className={`w-full p-4 mt-4 text-gray-700 bg-gray-100 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500 transition-colors resize-none mb-4 ${errors.description ? 'border-red-500' : ''}`}
                 required
             />
-            {errors.description && <p className="text-red-500 text-sm mb-2">{errors.description}</p>}
 
             <Dropdown
                 placeholder="Select an option"
@@ -119,7 +119,6 @@ const TaskForm = forwardRef<TaskFormRef, TaskFormProps>(({ taskData, setTaskData
                     className={`w-full px-4 py-2 bg-gray-100 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500 transition-colors ${errors.createdAt ? 'border-red-500' : ''}`}
                     dateFormat="MMMM d, yyyy"
                 />
-                {errors.createdAt && <p className="text-red-500 text-sm mt-1">{errors.createdAt}</p>}
             </div>
 
             <div className="mb-4">
@@ -131,7 +130,6 @@ const TaskForm = forwardRef<TaskFormRef, TaskFormProps>(({ taskData, setTaskData
                     className={`w-full px-4 py-2 bg-gray-100 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500 transition-colors ${errors.completedAt ? 'border-red-500' : ''}`}
                     dateFormat="MMMM d, yyyy"
                 />
-                {errors.completedAt && <p className="text-red-500 text-sm mt-1">{errors.completedAt}</p>}
             </div>
 
             <div>

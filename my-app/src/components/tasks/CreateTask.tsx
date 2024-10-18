@@ -19,6 +19,7 @@ export const CreateTask = () => {
         comment: '',
         file: null,
         estimation:"",
+        assignedTo: ''
     });
 
     const estimation = useTaskEstimation(taskData);

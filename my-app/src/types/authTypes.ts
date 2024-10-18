@@ -11,4 +11,6 @@ export interface AuthState {
     error: string | null;
     user: User | null;
     token: string | null;
+    totalUsers: User[],
+    developers: User[],
 }

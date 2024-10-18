@@ -8,11 +8,14 @@ import TaskForm from "../common/TaskForm";
 import { Task } from "../../types/taskTypes";
 import useTaskEstimation from "../../hooks/useTaskEstimation";
 
-export const EditTask: React.FC = () => {
+export const EditTask= () => {
     const dispatch = useDispatch<AppDispatch>();
     const { id } = useParams<{ id: any }>();
     const selectedTask = useSelector((state: RootState) => state.tasks.selectedTask);
     const navigate = useNavigate();
+
+    const storedUser = localStorage.getItem('user');
+    const role:string = storedUser ? JSON.parse(storedUser)[0].role : null;
 
     const [taskData, setTaskData] = useState<Task>({
         name: '',
@@ -24,6 +27,7 @@ export const EditTask: React.FC = () => {
         comment: '',
         file: null,
         estimation: "",
+        assignedTo:""
     });
 
     const estimation = useTaskEstimation(taskData);
@@ -65,7 +69,11 @@ export const EditTask: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-8">
                 <TaskForm taskData={taskData} setTaskData={(field, value) => setTaskData(prev => ({ ...prev, [field]: value }))}  />
                 <div className="flex justify-between">
-                    <Button type="button" label="Delete Task" className="px-6 py-3 bg-red-600 text-white font-semibold rounded-md shadow-lg hover:bg-red-700 transition-colors duration-300 ease-in-out" onClick={handleDelete} />
+                    {  role !== "developer" &&
+                        <Button type="button" label="Delete Task"
+                             className="px-6 py-3 bg-red-600 text-white font-semibold rounded-md shadow-lg hover:bg-red-700 transition-colors duration-300 ease-in-out"
+                             onClick={handleDelete}/>
+                    }
                     <Button type="submit" label="Update Task" className="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-md shadow-lg hover:bg-indigo-700 transition-colors duration-300 ease-in-out" />
                 </div>
             </form>

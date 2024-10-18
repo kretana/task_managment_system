@@ -10,6 +10,7 @@ export interface Task {
     file:File;
     comment:string;
     estimation:string;
+    assignedTo:string;
 }
 
 export interface TasksState {

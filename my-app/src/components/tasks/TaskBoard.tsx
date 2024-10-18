@@ -5,32 +5,43 @@ import { TaskListView } from './TaskListView';
 import { AppDispatch, RootState } from "../../redux/store";
 import { fetchTasks } from "../../redux/slices/tasks/authTasks";
 import { columns } from "../../config/const";
-import {Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Task } from "../../types/taskTypes";
-import {Tabs} from "../common/Tabs";
-import {AnaliticsReports} from "./AnaliticsReports";
+import { Tabs } from "../common/Tabs";
+import { AnaliticsReports } from "./AnaliticsReports";
 import Button from "../common/Button";
-import {logout} from "../../redux/slices/auth/authSlices";
+import { logout } from "../../redux/slices/auth/authSlices";
 
 export const TaskBoard: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
     const { tasks, status, error } = useSelector((state: RootState | any) => state.tasks);
     const [activeTab, setActiveTab] = useState<'board' | 'list' | 'reports'>('board');
     const storedUser = localStorage.getItem('user');
-    const userName = storedUser ? JSON.parse(storedUser)[0].name : null;
+    const userData = storedUser ? JSON.parse(storedUser)[0] : null;
+    const userName = userData ? userData.name : null;
+    const userRole = userData ? userData.role : null;
+    const userId = userData ? userData.id : null;
     const navigate = useNavigate();
 
     useEffect(() => {
         dispatch(fetchTasks());
     }, [dispatch]);
 
+    // Filter tasks based on user role
+    const filteredTasks = useMemo(() => {
+        if (userRole === 'developer') {
+            return tasks.filter((task) => task.assignedTo === userId);
+        }
+        return tasks;
+    }, [tasks, userRole, userId]);
+
     const groupedTasks = useMemo(() => {
         const grouped = {} as Record<string, Task[]>;
         columns.forEach((column) => {
-            grouped[column.status] = tasks.filter((task) => task.status === column.status);
+            grouped[column.status] = filteredTasks.filter((task) => task.status === column.status);
         });
         return grouped;
-    }, [tasks]);
+    }, [filteredTasks]);
 
     if (status === 'failed') {
         return (
@@ -54,16 +65,20 @@ export const TaskBoard: React.FC = () => {
             onClick: () => setActiveTab('list'),
             isActive: activeTab === 'list',
         },
-        {
-            label:"Reports & Analitics" ,
-        onClick: () => setActiveTab("reports"),
-        isActive: activeTab === "reports"}
     ];
 
-    const handleLogout = () =>{
-        dispatch(logout());
-        navigate('/')
+    if (userRole === 'admin') {
+        tabs.push({
+            label: "Reports & Analitics",
+            onClick: () => setActiveTab("reports"),
+            isActive: activeTab === "reports",
+        });
     }
+
+    const handleLogout = () => {
+        dispatch(logout());
+        navigate('/');
+    };
 
     return (
         <div className="bg-gray-50 p-4 md:p-8">
@@ -78,12 +93,14 @@ export const TaskBoard: React.FC = () => {
             <h1 className="text-2xl font-semibold text-gray-800 mb-4">Task Management System</h1>
             <div className="flex justify-between mb-5">
                 <Tabs tabs={tabs} />
-                <Link
-                    to="/new-task"
-                    className="underline font-bold text-indigo-600 hover:text-indigo-800 transition duration-300"
-                >
-                    Create a new task
-                </Link>
+                {userRole !== "developer" && (
+                    <Link
+                        to="/new-task"
+                        className="underline font-bold text-indigo-600 hover:text-indigo-800 transition duration-300"
+                    >
+                        Create a new task
+                    </Link>
+                )}
             </div>
 
             {activeTab === 'board' ? (
@@ -93,10 +110,10 @@ export const TaskBoard: React.FC = () => {
                     ))}
                 </div>
             ) : activeTab === 'list' ? (
-                <TaskListView tasks={tasks} />
-            ) : (
-                <AnaliticsReports />
-            )}
+                <TaskListView tasks={filteredTasks} />
+                ) : (
+                userRole === 'admin' && <AnaliticsReports />
+                )}
         </div>
     );
 };

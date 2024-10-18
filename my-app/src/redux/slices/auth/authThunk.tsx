@@ -16,11 +16,24 @@ export const login = createAsyncThunk<
                 password: credentials.password
             }
         });
-        console.log(response.data,'data')
         return { user: response.data, token: response.data[0].token };
     } catch (error) {
         return rejectWithValue('Failed to log in');
     }
 });
+
+
+export const getAllUsers = createAsyncThunk<User[], void, { rejectValue: string }>(
+    'auth/fetchUsers',
+    async (_, { rejectWithValue }) => {
+        try {
+            const response = await axios.get(`${URL}/users`);
+            return response.data;
+        } catch (error) {
+            return rejectWithValue('Failed to fetch users');
+        }
+    }
+);
+
 
 

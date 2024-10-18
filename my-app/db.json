@@ -10,69 +10,105 @@
     },
     {
       "id": "2",
-      "username": "test",
-      "password": "password456",
-      "name": "Test",
+      "username": "developerole@gmail.com",
+      "password": "developer",
+      "name": "Miri",
       "role": "developer",
       "token": "xyz789token"
+    },
+    {
+      "id": "3",
+      "username": "developerole2@gmail.com",
+      "password": "developer2",
+      "name": "Ismail",
+      "role": "developer",
+      "token": "sdf890token"
+    },
+    {
+      "id": "4",
+      "username": "developerole3@gmail.com",
+      "password": "developer3",
+      "name": "Rubin",
+      "role": "developer",
+      "token": "sdf890token"
+    },
+    {
+      "id": "5",
+      "username": "developerole4@gmail.com",
+      "password": "developer4",
+      "name": "Alisia",
+      "role": "developer",
+      "token": "sdf890token"
     }
   ],
   "tasks": [
     {
-      "id": "5",
-      "name": "rubin444444444",
-      "title": "dsds",
-      "description": "Create comprehensive unit tests for the existing codebase to ensure functionality and prevent regressions in future development.",
-      "status": "Ready Testing",
-      "createdAt": "2024-10-10T10:00:00.000Z",
-      "completedAt": "2024-10-14T15:00:00.000Z",
-      "estimation": "4 day(s)",
-      "comment": "ADD"
-    },
-    {
-      "id": "6",
-      "name": "Alisia",
-      "title": "Integrate Payment Gateway",
-      "status": "New Task",
-      "description": "Integrate Stripe payment gateway to enable secure online payments for users, including handling transactions and refunds.",
-      "createdAt": "2024-10-09T10:00:00.000Z",
-      "completedAt": "2024-10-14T15:00:00.000Z",
-      "estimation": "5 day(s)",
-      "comment": "fghfg"
-    },
-    {
-      "id": "8",
+      "id": "103",
+      "assignedTo": "1",
       "name": "Kretana",
       "title": "Refactor CSS to Tailwind",
-      "status": "Closed",
       "description": "Convert existing CSS to use Tailwind CSS for a more maintainable and scalable styling approach in the application.",
+      "status": "Ready Testing",
       "createdAt": "2024-10-11T10:00:00.000Z",
-      "completedAt": "2024-10-22T15:00:00.000Z",
-      "comment": "hbjhgm"
+      "completedAt": "2024-10-21T15:00:00.000Z",
+      "estimation": "5 day(s)"
     },
     {
-      "id": "b22a",
-      "name": "kretana",
-      "title": "test",
-      "description": "test",
+      "id": "104",
+      "assignedTo": "3",
+      "name": "Ismail",
+      "title": "Implement User Profile Feature",
+      "description": "Develop a user profile page where users can update their personal information and preferences.",
       "status": "In Progress",
-      "completedAt": "2024-10-30T23:00:00.000Z",
+      "createdAt": "2024-10-17T10:00:00.000Z",
+      "completedAt": "2024-10-21T15:00:00.000Z",
+      "estimation": "7 day(s)"
+    },
+    {
+      "id": "106",
+      "assignedTo": "1",
+      "name": "Kretana",
+      "title": "Prepare Project Presentation",
+      "description": "Create a presentation for the upcoming project meeting.",
+      "status": "Closed",
+      "createdAt": "2024-10-20T10:00:00.000Z",
+      "completedAt": "2024-10-21T15:00:00.000Z",
+      "estimation": "1 day(s)"
+    },
+    {
+      "id": "929f",
+      "name": "Miri",
+      "title": "Miri New Task",
+      "description": "Miri New TaskMiri New TaskMiri New TaskMiri New TaskMiri New TaskMiri New Task",
+      "status": "In Progress",
+      "completedAt": "2024-10-18T22:00:00.000Z",
       "createdAt": "2024-10-17T22:00:00.000Z",
-      "comment": "test",
+      "comment": "Miri New TaskMiri New TaskMiri New TaskMiri New TaskMiri New TaskMiri New Task",
       "file": null,
-      "estimation": "13 day(s)"
+      "estimation": "1 day(s)",
+      "assignedTo": "2"
     },
     {
-      "id": "5c4a",
-      "name": "user test",
-      "title": "test",
-      "description": "testst",
-      "status": "In Progress",
-      "completedAt": "2024-10-24T22:00:00.000Z",
-      "createdAt": "2024-10-07T22:00:00.000Z",
-      "comment": "testst",
-      "file": null,
-      "estimation": "17 day(s)"
+      "id": "190",
+      "assignedTo": "5",
+      "name": "Alisia",
+      "title": "Prepare Project Presentation",
+      "description": "Create a presentation for the upcoming project meeting.",
+      "status": "Closed",
+      "createdAt": "2024-10-20T10:00:00.000Z",
+      "completedAt": "2024-10-21T15:00:00.000Z",
+      "estimation": "1 day(s)"
+    },
+    {
+      "id": "657",
+      "assignedTo": "4",
+      "name": "Rubin",
+      "title": "Prepare Project Presentation",
+      "description": "Create a presentation for the upcoming project meeting.",
+      "status": "Closed",
+      "createdAt": "2024-10-20T10:00:00.000Z",
+      "completedAt": "2024-10-21T15:00:00.000Z",
+      "estimation": "1 day(s)"
     }
   ]
 }

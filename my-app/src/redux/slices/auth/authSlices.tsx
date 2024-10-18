@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { login } from './authThunk';
-import {AuthState, User} from "../../../types/authTypes";
+import { getAllUsers, login } from './authThunk';
+import { AuthState, User } from "../../../types/authTypes";
 
 const initialState: AuthState = {
     user: null,
@@ -8,6 +8,8 @@ const initialState: AuthState = {
     error: null,
     token: null,
     isAuthenticated: false,
+    totalUsers: [],
+    developers: [],
 };
 
 const authSlice = createSlice({
@@ -20,7 +22,7 @@ const authSlice = createSlice({
             state.isAuthenticated = false;
             state.error = null;
             localStorage.removeItem('user');
-            localStorage.removeItem('authToken')
+            localStorage.removeItem('authToken');
         },
     },
     extraReducers: (builder) => {
@@ -41,6 +43,20 @@ const authSlice = createSlice({
             .addCase(login.rejected, (state, action: PayloadAction<string | undefined>) => {
                 state.loading = false;
                 state.error = action.payload || 'Failed to log in';
+            })
+            .addCase(getAllUsers.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(getAllUsers.fulfilled, (state, action) => {
+                state.loading = false;
+                state.totalUsers = action.payload;
+                // Filter developers from the fetched users
+                state.developers = action.payload.filter(user => user.role === 'developer');
+            })
+            .addCase(getAllUsers.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.payload || 'Failed to fetch users';
             });
     },
 });
