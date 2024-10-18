@@ -138,14 +138,27 @@ const TaskForm = forwardRef<TaskFormRef, TaskFormProps>(({ taskData, setTaskData
                     value={taskData.estimation} className="rounded-md py-2 mb-3"  />
             </div>
 
-            <textarea
-                name="comment"
-                value={taskData.comment}
-                onChange={(e) => setTaskData('comment', e.target.value)}
-                placeholder="Enter comments..."
-                rows={2}
-                className="w-full mb-4 p-4 text-gray-700 bg-gray-100 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500 transition-colors resize-none"
-            />
+            <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700 mb-2">Comments</label>
+                <MentionsInput
+                    value={taskData.comment}
+                    onChange={(event, newValue, newPlainTextValue) => {
+                        setTaskData('comment', newPlainTextValue);
+                    }}
+                    className="w-full p-4 mb-4  text-gray-700 bg-gray-100 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500 transition-colors resize-none"
+                    placeholder="Add comments or mention someone..."
+                >
+                    <Mention
+                        trigger="@"
+                        data={developers.map(dev => ({
+                            id: dev.id,
+                            display: dev.name
+                        }))}
+                        markup="@[__id__](__display__)"
+                    />
+                </MentionsInput>
+            </div>
+
 
             <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700 mb-2">Upload File</label>

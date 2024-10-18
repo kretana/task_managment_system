@@ -44,14 +44,14 @@
   "tasks": [
     {
       "id": "103",
-      "assignedTo": "1",
-      "name": "Kretana",
+      "assignedTo": "4",
+      "name": "Rubin",
       "title": "Refactor CSS to Tailwind",
       "description": "Convert existing CSS to use Tailwind CSS for a more maintainable and scalable styling approach in the application.",
       "status": "Ready Testing",
       "createdAt": "2024-10-11T10:00:00.000Z",
       "completedAt": "2024-10-21T15:00:00.000Z",
-      "estimation": "5 day(s)"
+      "estimation": "10 day(s)"
     },
     {
       "id": "104",
@@ -62,7 +62,8 @@
       "status": "In Progress",
       "createdAt": "2024-10-17T10:00:00.000Z",
       "completedAt": "2024-10-21T15:00:00.000Z",
-      "estimation": "7 day(s)"
+      "estimation": "1 day(s)",
+      "comment": "Alisia is working with that so you can ask her"
     },
     {
       "id": "106",
@@ -70,10 +71,11 @@
       "name": "Kretana",
       "title": "Prepare Project Presentation",
       "description": "Create a presentation for the upcoming project meeting.",
-      "status": "Closed",
+      "status": "New Task",
       "createdAt": "2024-10-20T10:00:00.000Z",
       "completedAt": "2024-10-21T15:00:00.000Z",
-      "estimation": "1 day(s)"
+      "estimation": "1 day(s)",
+      "comment": "Rubin"
     },
     {
       "id": "929f",
