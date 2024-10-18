@@ -76,6 +76,7 @@ const TaskForm = forwardRef<TaskFormRef, TaskFormProps>(({ taskData, setTaskData
                 value={taskData.name}
                 required
                 error={errors.name}
+                useBottomBorderOnly={true}
                 className="mb-4"
             />
 
@@ -85,6 +86,7 @@ const TaskForm = forwardRef<TaskFormRef, TaskFormProps>(({ taskData, setTaskData
                 placeholder="Enter task title"
                 onChange={(e) => setTaskData('title', e.target.value)}
                 value={taskData.title}
+                useBottomBorderOnly={true}
                 required
                 error={errors.title}
             />
@@ -134,7 +136,8 @@ const TaskForm = forwardRef<TaskFormRef, TaskFormProps>(({ taskData, setTaskData
 
             <div>
                 <div>Estimation</div>
-                <Input value={taskData.estimation} className="rounded-md py-2 mb-4"  />
+                <Input    useBottomBorderOnly={true}
+                    value={taskData.estimation} className="rounded-md py-2 mb-3"  />
             </div>
 
             <textarea
