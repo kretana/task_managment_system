@@ -66,11 +66,7 @@ export const TaskBoard: React.FC = () => {
             onClick: () => setActiveTab('list'),
             isActive: activeTab === 'list',
         },
-        {
-            label:'Calendar View',
-            onClick: () => setActiveTab('calendar'),
-            isActive: activeTab === "calendar"
-        }
+
     ];
 
     if (userRole === 'admin') {
@@ -78,7 +74,13 @@ export const TaskBoard: React.FC = () => {
             label: "Reports & Analitics",
             onClick: () => setActiveTab("reports"),
             isActive: activeTab === "reports",
-        });
+        },
+            {
+                label:'Calendar View',
+                onClick: () => setActiveTab('calendar'),
+                isActive: activeTab === "calendar"
+            }
+            );
     }
 
     const handleLogout = () => {
@@ -117,7 +119,7 @@ export const TaskBoard: React.FC = () => {
             ) : activeTab === 'list' ? (
                 <TaskListView tasks={filteredTasks} />
             ) : activeTab === 'calendar' ? (
-                <CalendarView />
+                userRole === "admin" &&  <CalendarView/>
                 ) : (
                 userRole === 'admin' && <AnaliticsReports />
                 )}
