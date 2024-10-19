@@ -26,7 +26,6 @@ export const TaskBoard: React.FC = () => {
     const navigate = useNavigate();
     const { t } = useTranslation();
 
-    console.log(t,'t console')
     useEffect(() => {
         dispatch(fetchTasks());
     }, [dispatch]);
@@ -95,8 +94,8 @@ export const TaskBoard: React.FC = () => {
         <div className="bg-gray-50 p-4 md:p-8">
             <div className="flex justify-between items-center mb-8">
                 <div className="text-3xl font-bold">
-                    {t('header.title')}
-                  </div>
+                    {`${t('header.title')} ${userName}`}
+                </div>
                 <Button
                     label={"Logout"}
                     onClick={handleLogout}
