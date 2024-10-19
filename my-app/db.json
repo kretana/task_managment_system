@@ -51,7 +51,23 @@
       "status": "Ready Testing",
       "createdAt": "2024-10-11T10:00:00.000Z",
       "completedAt": "2024-10-21T15:00:00.000Z",
-      "estimation": "10 day(s)"
+      "estimation": "10 day(s)",
+      "comment": [
+        {
+          "id": "1729354712797",
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "test",
+          "createdAt": "2024-10-19T16:18:32.797Z"
+        },
+        {
+          "id": "570dbb13-1bc4-4868-832a-81b8ffcecfed",
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "another",
+          "createdAt": "2024-10-19T18:55:37.012Z"
+        }
+      ]
     },
     {
       "id": "104",
@@ -59,11 +75,19 @@
       "name": "Ismail",
       "title": "Implement User Profile Feature",
       "description": "Develop a user profile page where users can update their personal information and preferences.",
-      "status": "Ready Testing",
+      "status": "In Progress",
       "createdAt": "2024-10-17T10:00:00.000Z",
       "completedAt": "2024-10-21T15:00:00.000Z",
       "estimation": "1 day(s)",
-      "comment": "Alisia is working with that so you can ask her"
+      "comment": [
+        {
+          "id": "16771200-66ae-4da8-aebf-bd36cb6b2914",
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "new comment",
+          "createdAt": "2024-10-19T18:55:23.920Z"
+        }
+      ]
     },
     {
       "id": "106",
@@ -75,19 +99,34 @@
       "createdAt": "2024-10-17T10:00:00.000Z",
       "completedAt": "2024-10-20T15:00:00.000Z",
       "estimation": "3 day(s)",
-      "comment": "Rubin"
+      "comment": []
     },
     {
       "id": "929f",
       "name": "Miri",
       "title": "Miri New Task",
-      "description": "Miri New TaskMiri New TaskMiri New TaskMiri New TaskMiri New TaskMiri New Task",
-      "status": "In Progress",
+      "description": "123",
+      "status": "New Task",
       "completedAt": "2024-10-18T22:00:00.000Z",
       "createdAt": "2024-10-17T22:00:00.000Z",
-      "comment": "Miri New TaskMiri New TaskMiri New TaskMiri New TaskMiri New TaskMiri New Task",
+      "comment": [
+        {
+          "id": "1729354712797",
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "test",
+          "createdAt": "2024-10-19T16:18:32.797Z"
+        },
+        {
+          "id": "1729354808738",
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "asd",
+          "createdAt": "2024-10-19T16:20:08.738Z"
+        }
+      ],
       "file": null,
-      "estimation": "1 day(s)",
+      "estimation": "9 day(s)",
       "assignedTo": "2"
     },
     {
@@ -99,7 +138,16 @@
       "status": "New Task",
       "createdAt": "2024-10-20T10:00:00.000Z",
       "completedAt": "2024-10-21T15:00:00.000Z",
-      "estimation": "1 day(s)"
+      "estimation": "1 day(s)",
+      "comment": [
+        {
+          "id": "1729354712797",
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "test",
+          "createdAt": "2024-10-19T16:18:32.797Z"
+        }
+      ]
     },
     {
       "id": "657",
@@ -110,17 +158,33 @@
       "status": "Closed",
       "createdAt": "2024-10-20T10:00:00.000Z",
       "completedAt": "2024-10-21T15:00:00.000Z",
-      "estimation": "1 day(s)"
+      "estimation": "1 day(s)",
+      "comment": [
+        {
+          "id": "1729354712797",
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "test",
+          "createdAt": "2024-10-19T16:18:32.797Z"
+        },
+        {
+          "id": "1729354847424",
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "it wokrs",
+          "createdAt": "2024-10-19T16:20:47.424Z"
+        }
+      ]
     },
     {
       "id": "8e89",
       "name": "Rubin",
       "title": "tee",
       "description": "fsdf",
-      "status": "In Progress",
+      "status": "Closed",
       "completedAt": "2024-10-23T22:00:00.000Z",
       "createdAt": "2024-10-18T22:00:00.000Z",
-      "comment": "Ismail shihe cik",
+      "comment": [],
       "file": null,
       "estimation": "5 day(s)",
       "assignedTo": null
@@ -130,12 +194,88 @@
       "name": "Rubin",
       "title": "test",
       "description": "htjfjygjhmgjumghyj",
-      "status": "New Task",
+      "status": "In Progress",
       "completedAt": "2024-10-19T22:00:00.000Z",
       "createdAt": "2024-10-16T22:00:00.000Z",
-      "comment": "Ismail shihe cik",
+      "comment": [
+        {
+          "id": "1729354879376",
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "test",
+          "createdAt": "2024-10-19T16:21:19.376Z"
+        },
+        {
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "test",
+          "createdAt": "2024-10-19T16:22:23.977Z"
+        },
+        {
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "ruibn",
+          "createdAt": "2024-10-19T16:22:40.422Z"
+        },
+        {
+          "id": "9cb21d40-aa0e-4444-86bf-2028196886f6",
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "new with uuid",
+          "createdAt": "2024-10-19T16:25:41.564Z"
+        },
+        {
+          "id": "c2ba744d-4bc7-4c27-adb1-da7062268162",
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "test",
+          "createdAt": "2024-10-19T18:25:29.818Z"
+        }
+      ],
       "file": null,
       "estimation": "5 day(s)",
+      "assignedTo": "4"
+    },
+    {
+      "id": "c338",
+      "name": "Voluptate nulla dolo",
+      "title": "Eum enim eligendi vo",
+      "description": "Eu veniam rerum ad ",
+      "status": "",
+      "completedAt": "2024-10-18T22:00:00.000Z",
+      "createdAt": "2024-10-01T22:00:00.000Z",
+      "comment": [
+        {
+          "id": "1729354712797",
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "test",
+          "createdAt": "2024-10-19T16:18:32.797Z"
+        }
+      ],
+      "file": null,
+      "estimation": "17 day(s)",
+      "assignedTo": null
+    },
+    {
+      "id": "2590",
+      "name": "Rubin",
+      "title": "rubi new task",
+      "description": "asdas",
+      "status": "In Progress",
+      "completedAt": "2024-10-17T22:00:00.000Z",
+      "createdAt": "2024-10-08T22:00:00.000Z",
+      "comment": [
+        {
+          "id": "1729354712797",
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "test",
+          "createdAt": "2024-10-19T16:18:32.797Z"
+        }
+      ],
+      "file": null,
+      "estimation": "9 day(s)",
       "assignedTo": "4"
     }
   ]
