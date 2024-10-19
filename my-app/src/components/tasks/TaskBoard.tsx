@@ -13,6 +13,8 @@ import Button from "../common/Button";
 import { logout } from "../../redux/slices/auth/authSlices";
 import {CalendarView} from "./CalendarView";
 import {useTranslation} from "react-i18next";
+import {DateFilter} from "../DateFilter";
+import {UserFilter} from "../UserFilter";
 
 export const TaskBoard: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -26,8 +28,22 @@ export const TaskBoard: React.FC = () => {
     const navigate = useNavigate();
     const { t } = useTranslation();
 
+    const tabs = [
+        {
+            label: 'Board View',
+            onClick: () => setActiveTab('board'),
+            isActive: activeTab === 'board',
+        },
+        {
+            label: 'List View',
+            onClick: () => setActiveTab('list'),
+            isActive: activeTab === 'list',
+        },
+
+    ];
+
     useEffect(() => {
-        dispatch(fetchTasks());
+        dispatch(fetchTasks({}));
     }, [dispatch]);
 
     // Filter tasks based on user role
@@ -57,19 +73,6 @@ export const TaskBoard: React.FC = () => {
         );
     }
 
-    const tabs = [
-        {
-            label: 'Board View',
-            onClick: () => setActiveTab('board'),
-            isActive: activeTab === 'board',
-        },
-        {
-            label: 'List View',
-            onClick: () => setActiveTab('list'),
-            isActive: activeTab === 'list',
-        },
-
-    ];
 
     if (userRole === 'admin') {
         tabs.push({
@@ -103,6 +106,9 @@ export const TaskBoard: React.FC = () => {
                 />
             </div>
             <h1 className="text-2xl font-semibold text-gray-800 mb-4">Task Management System</h1>
+
+            <DateFilter />
+            <UserFilter />
             <div className="flex justify-between mb-5">
                 <Tabs tabs={tabs} />
                 {userRole !== "developer" && (
