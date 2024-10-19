@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Column } from './Column';
 import { TaskListView } from './TaskListView';
 import { AppDispatch, RootState } from "../../redux/store";
-import { fetchTasks } from "../../redux/slices/tasks/authTasks";
+import { fetchTasks } from "../../redux/slices/tasks/tasksThunk";
 import { columns } from "../../config/const";
 import { Link, useNavigate } from "react-router-dom";
 import { Task } from "../../types/taskTypes";

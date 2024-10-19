@@ -1,7 +1,7 @@
 import DatePicker from "react-datepicker";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { fetchTasks } from "../redux/slices/tasks/authTasks";
+import { fetchTasks } from "../redux/slices/tasks/tasksThunk";
 import { AppDispatch } from "../redux/store";
 import "react-datepicker/dist/react-datepicker.css";
 

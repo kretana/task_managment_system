@@ -4,7 +4,7 @@ import {
   deleteTaskById,
   editTaskById,
   getTaskById,
-} from "../../redux/slices/tasks/authTasks";
+} from "../../redux/slices/tasks/tasksThunk";
 import { AppDispatch, RootState } from "../../redux/store";
 import { Task, TaskComment } from "../../types/taskTypes";
 import Button from "../common/Button";

@@ -1,5 +1,5 @@
 import useTaskEstimation from "../../hooks/useTaskEstimation";
-import { createTask } from "../../redux/slices/tasks/authTasks";
+import { createTask } from "../../redux/slices/tasks/tasksThunk";
 import { AppDispatch } from "../../redux/store";
 import { Task } from "../../types/taskTypes";
 import Button from "../common/Button";

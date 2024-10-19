@@ -7,7 +7,7 @@ import {
   fetchTasks,
   getTaskById,
   updateTask,
-} from "./authTasks";
+} from "./tasksThunk";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: TasksState = {

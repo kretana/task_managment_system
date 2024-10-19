@@ -3,7 +3,7 @@ import { useDrop } from 'react-dnd';
 import { useDispatch } from 'react-redux';
 import { TaskItem } from './TaskItem';
 import {AppDispatch} from "../../redux/store";
-import {updateTask} from "../../redux/slices/tasks/authTasks";
+import {updateTask} from "../../redux/slices/tasks/tasksThunk";
 import {Task} from "../../types/taskTypes";
 
 
