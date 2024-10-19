@@ -59,7 +59,7 @@
       "name": "Ismail",
       "title": "Implement User Profile Feature",
       "description": "Develop a user profile page where users can update their personal information and preferences.",
-      "status": "In Progress",
+      "status": "Ready Testing",
       "createdAt": "2024-10-17T10:00:00.000Z",
       "completedAt": "2024-10-21T15:00:00.000Z",
       "estimation": "1 day(s)",
@@ -71,10 +71,10 @@
       "name": "Kretana",
       "title": "Prepare Project Presentation",
       "description": "Create a presentation for the upcoming project meeting.",
-      "status": "New Task",
+      "status": "In Progress",
       "createdAt": "2024-10-20T10:00:00.000Z",
       "completedAt": "2024-10-21T15:00:00.000Z",
-      "estimation": "1 day(s)",
+      "estimation": "4 day(s)",
       "comment": "Rubin"
     },
     {
@@ -96,7 +96,7 @@
       "name": "Alisia",
       "title": "Prepare Project Presentation",
       "description": "Create a presentation for the upcoming project meeting.",
-      "status": "Closed",
+      "status": "In Progress",
       "createdAt": "2024-10-20T10:00:00.000Z",
       "completedAt": "2024-10-21T15:00:00.000Z",
       "estimation": "1 day(s)"
@@ -111,6 +111,32 @@
       "createdAt": "2024-10-20T10:00:00.000Z",
       "completedAt": "2024-10-21T15:00:00.000Z",
       "estimation": "1 day(s)"
+    },
+    {
+      "id": "8e89",
+      "name": "Rubin",
+      "title": "tee",
+      "description": "fsdf",
+      "status": "In Progress",
+      "completedAt": "2024-10-23T22:00:00.000Z",
+      "createdAt": "2024-10-18T22:00:00.000Z",
+      "comment": "Ismail shihe cik",
+      "file": null,
+      "estimation": "5 day(s)",
+      "assignedTo": null
+    },
+    {
+      "id": "6da7",
+      "name": "Rubin",
+      "title": "test",
+      "description": "dsfdsfsd",
+      "status": "New Task",
+      "completedAt": null,
+      "createdAt": null,
+      "comment": "Ismail shihe cik",
+      "file": null,
+      "estimation": "5 day(s)",
+      "assignedTo": "4"
     }
   ]
 }

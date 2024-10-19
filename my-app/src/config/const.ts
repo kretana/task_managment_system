@@ -16,3 +16,8 @@ export const options = [
 ];
 
 
+export const LANGUAGES = [
+    { code: 'en', name: 'English', flag: '/assets/images/flags/en.svg' },
+    { code: 'it', name: 'Italian', flag: '/assets/images/flags/it.svg' }
+];
+

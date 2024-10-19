@@ -12,6 +12,7 @@ import { AnaliticsReports } from "./AnaliticsReports";
 import Button from "../common/Button";
 import { logout } from "../../redux/slices/auth/authSlices";
 import {CalendarView} from "./CalendarView";
+import {useTranslation} from "react-i18next";
 
 export const TaskBoard: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -23,7 +24,9 @@ export const TaskBoard: React.FC = () => {
     const userRole = userData ? userData.role : null;
     const userId = userData ? userData.id : null;
     const navigate = useNavigate();
+    const { t } = useTranslation();
 
+    console.log(t,'t console')
     useEffect(() => {
         dispatch(fetchTasks());
     }, [dispatch]);
@@ -91,7 +94,9 @@ export const TaskBoard: React.FC = () => {
     return (
         <div className="bg-gray-50 p-4 md:p-8">
             <div className="flex justify-between items-center mb-8">
-                <div className="text-3xl font-bold">{`Welcome Back, ${userName}!`}</div>
+                <div className="text-3xl font-bold">
+                    {t('header.title')}
+                  </div>
                 <Button
                     label={"Logout"}
                     onClick={handleLogout}
