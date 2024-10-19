@@ -15,6 +15,7 @@ import {CalendarView} from "./CalendarView";
 import {useTranslation} from "react-i18next";
 import {DateFilter} from "../DateFilter";
 import {UserFilter} from "../UserFilter";
+import {getAllUsers} from "../../redux/slices/auth/authThunk";
 
 export const TaskBoard: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -27,6 +28,8 @@ export const TaskBoard: React.FC = () => {
     const userId = userData ? userData.id : null;
     const navigate = useNavigate();
     const { t } = useTranslation();
+
+    const allLoggedUsers =useSelector((state: RootState | any) => state.auth.totalUsers);
 
     const tabs = [
         {
@@ -44,6 +47,7 @@ export const TaskBoard: React.FC = () => {
 
     useEffect(() => {
         dispatch(fetchTasks({}));
+        dispatch(getAllUsers());
     }, [dispatch]);
 
     // Filter tasks based on user role
@@ -93,6 +97,11 @@ export const TaskBoard: React.FC = () => {
         navigate('/');
     };
 
+    const onFilterChange = (selectedUsers) =>{
+        console.log(selectedUsers,'test')
+        dispatch(fetchTasks({userId:selectedUsers[0]}))
+    }
+
     return (
         <div className="bg-gray-50 p-4 md:p-8">
             <div className="flex justify-between items-center mb-8">
@@ -108,7 +117,7 @@ export const TaskBoard: React.FC = () => {
             <h1 className="text-2xl font-semibold text-gray-800 mb-4">Task Management System</h1>
 
             <DateFilter />
-            <UserFilter />
+            <UserFilter users={allLoggedUsers} onFilterChange={onFilterChange} />
             <div className="flex justify-between mb-5">
                 <Tabs tabs={tabs} />
                 {userRole !== "developer" && (

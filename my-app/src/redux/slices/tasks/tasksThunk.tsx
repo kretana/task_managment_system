@@ -4,7 +4,7 @@ import {URL} from '../../../config/const'
 import {Task, TaskUpdate} from "../../../types/taskTypes";
 
 
-export const fetchTasks = createAsyncThunk('tasks/fetchTasks', async ({ createdAt, completedAt }: { createdAt?: string, completedAt?: string }) => {
+export const fetchTasks = createAsyncThunk('tasks/fetchTasks', async ({ createdAt, completedAt , userId }: { createdAt?: string, completedAt?: string , userId?:string }) => {
     let url = `${URL}/tasks`;
 
     const params = new URLSearchParams();
@@ -13,6 +13,9 @@ export const fetchTasks = createAsyncThunk('tasks/fetchTasks', async ({ createdA
     }
     if (completedAt) {
         params.append('completedAt', completedAt);
+    }
+    if (userId){
+        params.append('assignedTo', userId)
     }
 
     if (params.toString()) {

@@ -27,6 +27,7 @@ interface TaskFormProps {
     comment: TaskComment[];
     status: string;
     assignedTo: string;
+    file:File | null
   };
   setTaskData: (field: string, value: any) => void;
   handleCommentSubmit?: (e: any) => void;
@@ -70,6 +71,12 @@ const TaskForm = forwardRef<TaskFormRef, TaskFormProps>(
     useImperativeHandle(ref, () => ({
       validateForm,
     }));
+
+
+      const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+          const file = event.target.files ? event.target.files[0] : null;
+          setTaskData("file", file);
+      };
 
     return (
       <div>
@@ -208,15 +215,16 @@ const TaskForm = forwardRef<TaskFormRef, TaskFormProps>(
           </div>
         )}
 
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Upload File
-          </label>
-          <input
-            type="file"
-            className="w-full p-2 border border-gray-300 rounded-md"
-          />
-        </div>
+          <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Upload File
+              </label>
+              <input
+                  type="file"
+                  onChange={handleFileChange}
+                  className="w-full p-2 border border-gray-300 rounded-md"
+              />
+          </div>
       </div>
     );
   }

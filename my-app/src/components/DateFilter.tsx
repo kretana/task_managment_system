@@ -27,7 +27,6 @@ export const DateFilter = () => {
 
     return (
         <div className="flex flex-row justify-end items-left space-x-4">
-            <div className="mt-2">Filter based on date:</div>
             <DatePicker
                 selected={createdAt}
                 onChange={(date) => setCreatedAt(date)}
