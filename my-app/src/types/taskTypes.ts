@@ -13,7 +13,7 @@ export interface Task {
   title: string;
   createdAt: Date;
   completedAt: Date;
-  file: File;
+  file: [];
   comment: TaskComment[];
   estimation: string;
   assignedTo: string;

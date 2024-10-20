@@ -120,6 +120,7 @@ export const EditTask = () => {
           handleCommentSubmit={handleCommentSubmit}
           currentComment={currentComment}
           setCurrentComment={setCurrentComment}
+          isCreating={false}
         />
         <div className="flex justify-between">
           {role !== "developer" && (

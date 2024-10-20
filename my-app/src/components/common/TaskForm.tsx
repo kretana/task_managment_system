@@ -15,6 +15,7 @@ import { TaskComment } from "../../types/taskTypes";
 import CommentList from "../tasks/comments/CommentList";
 import { MentionsInput, Mention } from "react-mentions";
 import { useDispatch, useSelector } from "react-redux";
+import AttachmentsSection from "../tasks/Files";
 
 interface TaskFormProps {
   taskData: {
@@ -27,12 +28,13 @@ interface TaskFormProps {
     comment: TaskComment[];
     status: string;
     assignedTo: string;
-    file:File | null
+    file: []
   };
   setTaskData: (field: string, value: any) => void;
   handleCommentSubmit?: (e: any) => void;
   currentComment?: string;
   setCurrentComment?: (string) => void;
+  isCreating: boolean
 }
 
 export interface TaskFormRef {
@@ -47,6 +49,7 @@ const TaskForm = forwardRef<TaskFormRef, TaskFormProps>(
       handleCommentSubmit,
       currentComment,
       setCurrentComment,
+      isCreating
     },
     ref
   ) => {
@@ -72,13 +75,10 @@ const TaskForm = forwardRef<TaskFormRef, TaskFormProps>(
       validateForm,
     }));
 
-
-      const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-          const file = event.target.files ? event.target.files[0] : null;
-          setTaskData("file", file);
+      const handleAddAttachment = (newAttachment: any) => {
+          setTaskData("file", newAttachment);
       };
-
-    return (
+      return (
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-2">
           Assign Task to:
@@ -181,7 +181,7 @@ const TaskForm = forwardRef<TaskFormRef, TaskFormProps>(
           />
         </div>
 
-        {handleCommentSubmit && (
+        {!isCreating && (
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Comments
@@ -216,13 +216,9 @@ const TaskForm = forwardRef<TaskFormRef, TaskFormProps>(
         )}
 
           <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Upload File
-              </label>
-              <input
-                  type="file"
-                  onChange={handleFileChange}
-                  className="w-full p-2 border border-gray-300 rounded-md"
+              <AttachmentsSection
+                  attachments={taskData.file || []}
+                  addAttachments={handleAddAttachment}
               />
           </div>
       </div>

@@ -17,7 +17,7 @@ export const CreateTask = () => {
     completedAt: null,
     createdAt: null,
     comment: [],
-    file: null,
+    file: [],
     estimation: "",
     assignedTo: "",
   });
@@ -58,6 +58,7 @@ export const CreateTask = () => {
           setTaskData={(field, value) =>
             setTaskData((prev) => ({ ...prev, [field]: value }))
           }
+          isCreating={true}
         />
         <Button
           type="submit"
