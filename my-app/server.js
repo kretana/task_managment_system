@@ -7,7 +7,7 @@ server.use(middlewares);
 
 server.get("/tasks", (req, res) => {
     const db = router.db;
-    const { createdAt, completedAt, searchTerm } = req.query;
+    const { createdAt, completedAt, searchTerm, nameFilter, statusFilter } = req.query;
 
     let tasks = db.get("tasks");
 
@@ -36,6 +36,20 @@ server.get("/tasks", (req, res) => {
 
             return matchesName || matchesTitle || matchesDescription || matchesStatus;
         });
+    }
+
+    if (nameFilter) {
+        const nameVal = nameFilter.toLowerCase();
+        tasks = tasks.filter((task) =>
+            task.name.toLowerCase().includes(nameVal)
+        );
+    }
+
+    if (statusFilter) {
+        const statusVal = statusFilter.toLowerCase();
+        tasks = tasks.filter((task) =>
+            task.status.toLowerCase().includes(statusVal)
+        );
     }
 
     res.jsonp(tasks.value());
