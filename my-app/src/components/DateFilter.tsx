@@ -1,5 +1,5 @@
 import DatePicker from "react-datepicker";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState} from "react";
 import { useDispatch } from "react-redux";
 import { fetchTasks } from "../redux/slices/tasks/tasksThunk";
 import { AppDispatch } from "../redux/store";
@@ -9,20 +9,22 @@ export const DateFilter = () => {
     const dispatch = useDispatch<AppDispatch>();
     const [createdAt, setCreatedAt] = useState<Date | null>(null);
     const [completedAt, setCompletedAt] = useState<Date | null>(null);
-
-    const refetchWithoutFilters = () => {
-        dispatch(fetchTasks({}));
-    };
+    const isInitialMount = useRef(true);
 
     useEffect(() => {
-        if (createdAt && completedAt) {
-            dispatch(fetchTasks({
-                createdAt: createdAt.toISOString(),
-                completedAt: completedAt.toISOString(),
-            }));
-        } else if(!createdAt && !completedAt ) {
-            refetchWithoutFilters();
+        if (isInitialMount.current){
+            isInitialMount.current = false
+        }else {
+            if (createdAt && completedAt) {
+                dispatch(fetchTasks({
+                    createdAt: createdAt.toISOString(),
+                    completedAt: completedAt.toISOString(),
+                }));
+            } else if(!createdAt && !completedAt ) {
+                dispatch(fetchTasks({}));
+            }
         }
+
     }, [createdAt, completedAt, dispatch]);
 
     return (

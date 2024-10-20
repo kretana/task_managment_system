@@ -44,8 +44,8 @@
   "tasks": [
     {
       "id": "103",
-      "assignedTo": "3",
-      "name": "Ismail",
+      "assignedTo": "4",
+      "name": "Rubin",
       "title": "Refactor CSS to Tailwind",
       "description": "Convert existing CSS to use Tailwind CSS for a more maintainable and scalable styling approach in the application.",
       "status": "In Progress",
@@ -75,10 +75,10 @@
       ]
     },
     {
-      "name": "Rubin",
+      "name": "Miri",
       "title": "Alisia Task Check Responsive Design",
       "description": "Check if the mobile version looks like figma",
-      "status": "Ready Testing",
+      "status": "In Progress",
       "completedAt": "2024-10-20T22:00:00.000Z",
       "createdAt": "2024-10-19T22:00:00.000Z",
       "comment": [
@@ -95,11 +95,35 @@
           "id": "ccf85832-85a8-4c62-b7f5-c363cb64adeb",
           "filename": "kretana_reveliCV (2).pdf",
           "url": "blob:http://localhost:3001/cec67bef-69b4-4e58-895a-627ca6c88121"
+        },
+        {
+          "id": "3dc7c46f-6450-451e-8fc9-80567696b3bb",
+          "filename": "a12737f3-7bbc-45ad-a72a-da007d5cd984.pdf",
+          "url": "blob:http://localhost:3001/65e3cf27-30fe-442b-960a-a2509d77ff10"
         }
       ],
       "estimation": "1 day(s)",
-      "assignedTo": "4",
+      "assignedTo": "2",
       "id": "ImZnM9c"
+    },
+    {
+      "name": "Alisia",
+      "title": "Create a react app",
+      "description": "Create a react app",
+      "status": "New Task",
+      "completedAt": "2024-10-29T23:00:00.000Z",
+      "createdAt": "2024-10-19T22:00:00.000Z",
+      "comment": [],
+      "file": [
+        {
+          "id": "719d78d4-3c0e-4e55-a63a-cd25fc785989",
+          "filename": "a12737f3-7bbc-45ad-a72a-da007d5cd984.pdf",
+          "url": "blob:http://localhost:3001/35b2488a-9553-448a-aff0-20df71f71bb8"
+        }
+      ],
+      "estimation": "10 day(s)",
+      "assignedTo": "5",
+      "id": "KH1Zerh"
     }
   ]
 }

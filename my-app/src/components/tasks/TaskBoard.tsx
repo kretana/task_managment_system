@@ -14,7 +14,6 @@ import { logout } from "../../redux/slices/auth/authSlices";
 import {CalendarView} from "./CalendarView";
 import {useTranslation} from "react-i18next";
 import {DateFilter} from "../DateFilter";
-import {getAllUsers} from "../../redux/slices/auth/authThunk";
 import {GlobalSearch} from "../GlobalSearch";
 
 export const TaskBoard: React.FC = () => {
@@ -46,8 +45,7 @@ export const TaskBoard: React.FC = () => {
 
     useEffect(() => {
         dispatch(fetchTasks({}));
-        dispatch(getAllUsers());
-    }, [dispatch]);
+    }, []);
 
     // Filter tasks based on user role
     const filteredTasks = useMemo(() => {
