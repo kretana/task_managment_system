@@ -7,7 +7,7 @@ server.use(middlewares);
 
 server.get("/tasks", (req, res) => {
     const db = router.db;
-    const {  createdAt, completedAt } = req.query;
+    const { createdAt, completedAt, searchTerm } = req.query;
 
     let tasks = db.get("tasks");
 
@@ -22,6 +22,19 @@ server.get("/tasks", (req, res) => {
         tasks = tasks.filter((task) => {
             const completedDate = new Date(task.completedAt);
             return completedDate <= new Date(completedAt);
+        });
+    }
+
+    if (searchTerm) {
+        const lowerCaseTerm = searchTerm.toLowerCase();
+
+        tasks = tasks.filter((task) => {
+            const matchesName = task.name.toLowerCase().includes(lowerCaseTerm);
+            const matchesTitle = task.title.toLowerCase().includes(lowerCaseTerm);
+            const matchesDescription = task.description.toLowerCase().includes(lowerCaseTerm);
+            const matchesStatus = task.status.toLowerCase().includes(lowerCaseTerm);
+
+            return matchesName || matchesTitle || matchesDescription || matchesStatus;
         });
     }
 

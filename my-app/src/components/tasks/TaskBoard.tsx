@@ -15,6 +15,7 @@ import {CalendarView} from "./CalendarView";
 import {useTranslation} from "react-i18next";
 import {DateFilter} from "../DateFilter";
 import {getAllUsers} from "../../redux/slices/auth/authThunk";
+import {GlobalSearch} from "../GlobalSearch";
 
 export const TaskBoard: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -109,8 +110,8 @@ export const TaskBoard: React.FC = () => {
                     className="px-4 py-2 bg-red-500 text-white font-bold rounded hover:bg-red-600 transition duration-300"
                 />
             </div>
-            <h1 className="text-2xl font-semibold text-gray-800 mb-4">Task Management System</h1>
-
+            <GlobalSearch />
+            <h1 className="text-2xl font-semibold text-gray-800 mb-4 mt-4">Task Management System</h1>
             <DateFilter />
             <div className="flex justify-between mb-5">
                 <Tabs tabs={tabs} />
