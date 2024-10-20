@@ -44,8 +44,8 @@
   "tasks": [
     {
       "id": "103",
-      "assignedTo": "4",
-      "name": "Rubin",
+      "assignedTo": "2",
+      "name": "Miri",
       "title": "Refactor CSS to Tailwind",
       "description": "Convert existing CSS to use Tailwind CSS for a more maintainable and scalable styling approach in the application.",
       "status": "In Progress",
@@ -54,14 +54,14 @@
       "estimation": "10 day(s)",
       "file": [
         {
-          "id": "d9e8e9bb-79c3-4aab-ad1f-9a3dc63851d6",
-          "filename": "italianFlag.svg",
-          "url": "blob:http://localhost:3001/cb5ec40e-e30a-468b-8a7c-c6ee69fd54ec"
-        },
-        {
           "id": "ddef73ae-c5c0-4a10-ae3b-d5605529c8e0",
           "filename": "a12737f3-7bbc-45ad-a72a-da007d5cd984.pdf",
           "url": "blob:http://localhost:3001/5225faca-8ed6-4ca4-a751-f983c6894408"
+        },
+        {
+          "id": "e8245010-5719-4fa8-9ea1-c5f75caf8485",
+          "filename": "errorFields.jpeg",
+          "url": "blob:http://localhost:3001/524d0153-9e1a-4e9e-b1cb-93f6c7c7e54c"
         }
       ],
       "comment": [
@@ -71,6 +71,20 @@
           "userName": "Kretana",
           "content": "Hey Ismail can you check with Rubin?",
           "createdAt": "2024-10-20T14:22:52.287Z"
+        },
+        {
+          "id": "87ae9a4e-68bf-4b81-802a-da047cc96a9d",
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "tesst",
+          "createdAt": "2024-10-20T20:41:37.272Z"
+        },
+        {
+          "id": "31bbe229-9bcb-48e8-a025-c1ba917f3573",
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "test 2",
+          "createdAt": "2024-10-20T20:42:39.430Z"
         }
       ]
     },
@@ -124,6 +138,71 @@
       "estimation": "10 day(s)",
       "assignedTo": "5",
       "id": "KH1Zerh"
+    },
+    {
+      "name": "Miri",
+      "title": "sa",
+      "description": "dasd",
+      "status": "",
+      "completedAt": null,
+      "createdAt": null,
+      "comment": [],
+      "file": [],
+      "estimation": "",
+      "assignedTo": "2",
+      "id": "VPNipsJ"
+    },
+    {
+      "name": "Miri",
+      "title": "dasdsad",
+      "description": "dsadsadsadasdasdasdfsdfdsfrwer",
+      "status": "New Task",
+      "completedAt": "2024-10-21T22:00:00.000Z",
+      "createdAt": "2024-10-13T22:00:00.000Z",
+      "comment": [],
+      "file": [],
+      "estimation": "8 day(s)",
+      "assignedTo": "2",
+      "id": "nJyBUXK"
+    },
+    {
+      "name": "Miri",
+      "title": "miri re=render",
+      "description": "mirushja",
+      "status": "In Progress",
+      "completedAt": "2024-10-23T22:00:00.000Z",
+      "createdAt": "2024-09-30T22:00:00.000Z",
+      "comment": [],
+      "file": [],
+      "estimation": "23 day(s)",
+      "assignedTo": "2",
+      "id": "6DbOxJI"
+    },
+    {
+      "name": "Miri",
+      "title": "dsf",
+      "description": "fds",
+      "status": "In Progress",
+      "completedAt": "2024-10-15T22:00:00.000Z",
+      "createdAt": "2024-10-01T22:00:00.000Z",
+      "comment": [],
+      "file": [],
+      "estimation": "14 day(s)",
+      "assignedTo": "2",
+      "id": "vDa_1gr"
+    },
+    {
+      "name": "",
+      "title": "dsa",
+      "description": "sadsa",
+      "status": "",
+      "completedAt": null,
+      "createdAt": null,
+      "comment": [],
+      "file": [],
+      "estimation": "",
+      "assignedTo": "",
+      "id": "Exuk-wD"
     }
   ]
 }
