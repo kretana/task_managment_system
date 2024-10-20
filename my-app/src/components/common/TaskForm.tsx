@@ -78,39 +78,24 @@ const TaskForm = forwardRef<TaskFormRef, TaskFormProps>(
       const handleAddAttachment = (newAttachment: any) => {
           setTaskData("file", newAttachment);
       };
+
+      const handleAssignChange = (option) => {
+        setTaskData("name", option.label);
+        setTaskData("assignedTo", option.value);
+      }
+
+      const members = developers.map((dev) => {
+      return {value: dev.id,
+        label: dev.name
+      }
+    })
       return (
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-2">
           Assign Task to:
         </label>
-        <MentionsInput
-          value={taskData.name}
-          onChange={(event, newValue, newPlainTextValue, mentions) => {
-            const strippedValue = newPlainTextValue;
-            if (mentions.length > 0) {
-              const developerId = mentions[0].id;
-              setTaskData("name", strippedValue);
-              setTaskData("assignedTo", developerId);
-            } else {
-              setTaskData("name", strippedValue);
-              setTaskData("assignedTo", null);
-            }
-          }}
-          className={`w-full px-4 py-3 mb-4 ${
-            errors.name ? "border-red-500" : "border-gray-300"
-          } rounded-md shadow-sm`}
-          placeholder="Assign task to someone"
-        >
-          <Mention
-            trigger="@"
-            data={developers.map((dev) => ({
-              id: dev.id,
-              display: dev.name,
-            }))}
-            markup="@[__id__](__display__)"
-          />
-        </MentionsInput>
 
+        <Dropdown options={members} value={taskData.name} onChange={(option) => handleAssignChange(option)} />
         <Input
           label="Title"
           name="title"

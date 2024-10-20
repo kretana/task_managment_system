@@ -44,8 +44,8 @@
   "tasks": [
     {
       "id": "103",
-      "assignedTo": "4",
-      "name": "Rubin",
+      "assignedTo": "3",
+      "name": "Ismail",
       "title": "Refactor CSS to Tailwind",
       "description": "Convert existing CSS to use Tailwind CSS for a more maintainable and scalable styling approach in the application.",
       "status": "In Progress",
@@ -75,10 +75,10 @@
       ]
     },
     {
-      "name": "Alisia",
+      "name": "Rubin",
       "title": "Alisia Task Check Responsive Design",
       "description": "Check if the mobile version looks like figma",
-      "status": "New Task",
+      "status": "Ready Testing",
       "completedAt": "2024-10-20T22:00:00.000Z",
       "createdAt": "2024-10-19T22:00:00.000Z",
       "comment": [
@@ -98,7 +98,7 @@
         }
       ],
       "estimation": "1 day(s)",
-      "assignedTo": "5",
+      "assignedTo": "4",
       "id": "ImZnM9c"
     }
   ]
