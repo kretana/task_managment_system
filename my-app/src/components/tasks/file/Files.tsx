@@ -30,8 +30,6 @@ const AttachmentsSection: React.FC<AttachmentsSectionProps> = ({ attachments, ad
             }));
 
                 addAttachments([...attachments, ...newFileObjs]);
-
-
         }
     }, [newFiles]);
 

@@ -11,7 +11,7 @@ import {Task} from "../../types/taskTypes";
 import CommentList from "../tasks/comments/CommentList";
 import { MentionsInput, Mention } from "react-mentions";
 import { useDispatch, useSelector } from "react-redux";
-import AttachmentsSection from "../tasks/Files";
+import AttachmentsSection from "../tasks/file/Files";
 
 interface TaskFormProps {
     taskData: Task;
