@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState, useCallback, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Column } from './Column';
 import { TaskListView } from '../Views/TaskListView';
@@ -11,48 +11,32 @@ import { Tabs } from "../common/Tabs";
 import { AnaliticsReports } from "../Views/AnaliticsReports";
 import Button from "../common/Button";
 import { logout } from "../../redux/slices/auth/authSlices";
-import {CalendarView} from "../Views/CalendarView";
-import {useTranslation} from "react-i18next";
-import {DateFilter} from "../DateFilter";
-import {GlobalSearch} from "../GlobalSearch";
+import { CalendarView } from "../Views/CalendarView";
+import { useTranslation } from "react-i18next";
+import { DateFilter } from "../DateFilter";
+import { GlobalSearch } from "../GlobalSearch";
 
 export const TaskBoard: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
     const { tasks, status, error } = useSelector((state: RootState | any) => state.tasks);
-    const [activeTab, setActiveTab] = useState<'board' | 'list' | 'reports' |'calendar'>('board');
+    const [activeTab, setActiveTab] = useState<'board' | 'list' | 'reports' | 'calendar'>('board');
     const storedUser = localStorage.getItem('user');
     const userData = storedUser ? JSON.parse(storedUser)[0] : null;
-    const userName = userData ? userData.name : null;
-    const userRole = userData ? userData.role : null;
-    const userId = userData ? userData.id : null;
+    const userName = userData?.name;
+    const userRole = userData?.role;
+    const userId = userData?.id;
     const navigate = useNavigate();
     const { t } = useTranslation();
 
-
-    const tabs = [
-        {
-            label: 'Board View',
-            onClick: () => setActiveTab('board'),
-            isActive: activeTab === 'board',
-        },
-        {
-            label: 'List View',
-            onClick: () => setActiveTab('list'),
-            isActive: activeTab === 'list',
-        },
-
-    ];
-
     useEffect(() => {
         dispatch(fetchTasks({}));
-    }, []);
+    }, [dispatch]);
 
     // Filter tasks based on user role
     const filteredTasks = useMemo(() => {
-        if (userRole === 'developer') {
-            return tasks.filter((task) => task.assignedTo === userId);
-        }
-        return tasks;
+        return userRole === 'developer'
+            ? tasks.filter((task) => task.assignedTo === userId)
+            : tasks;
     }, [tasks, userRole, userId]);
 
     const groupedTasks = useMemo(() => {
@@ -62,6 +46,46 @@ export const TaskBoard: React.FC = () => {
         });
         return grouped;
     }, [filteredTasks]);
+
+    const handleLogout = () => {
+        dispatch(logout());
+        navigate('/');
+    };
+    const handleTabClick = useCallback((tab: 'board' | 'list' | 'reports' | 'calendar') => {
+        setActiveTab(tab);
+    }, []);
+
+    const tabs = useMemo(() => {
+        const baseTabs = [
+            {
+                label: 'Board View',
+                onClick: () => handleTabClick('board'),
+                isActive: activeTab === 'board',
+            },
+            {
+                label: 'List View',
+                onClick: () => handleTabClick('list'),
+                isActive: activeTab === 'list',
+            },
+        ];
+
+        if (userRole === 'admin') {
+            baseTabs.push(
+                {
+                    label: "Reports & Analitics",
+                    onClick: () => handleTabClick("reports"),
+                    isActive: activeTab === "reports",
+                },
+                {
+                    label: 'Calendar View',
+                    onClick: () => handleTabClick('calendar'),
+                    isActive: activeTab === 'calendar',
+                }
+            );
+        }
+
+        return baseTabs;
+    }, [activeTab, handleTabClick, userRole]);
 
     if (status === 'failed') {
         return (
@@ -73,28 +97,6 @@ export const TaskBoard: React.FC = () => {
             </div>
         );
     }
-
-
-    if (userRole === 'admin') {
-        tabs.push({
-            label: "Reports & Analitics",
-            onClick: () => setActiveTab("reports"),
-            isActive: activeTab === "reports",
-        },
-            {
-                label:'Calendar View',
-                onClick: () => setActiveTab('calendar'),
-                isActive: activeTab === "calendar"
-            }
-            );
-    }
-
-    const handleLogout = () => {
-        dispatch(logout());
-        navigate('/');
-    };
-
-
 
     return (
         <div className="bg-gray-50 p-4 md:p-8">
@@ -129,12 +131,16 @@ export const TaskBoard: React.FC = () => {
                     ))}
                 </div>
             ) : activeTab === 'list' ? (
-                <TaskListView tasks={filteredTasks} />
+                <Suspense fallback={<div>Loading...</div>}>
+                    <TaskListView tasks={filteredTasks} />
+                </Suspense>
             ) : activeTab === 'calendar' ? (
-                userRole === "admin" &&  <CalendarView/>
-                ) : (
-                userRole === 'admin' && <AnaliticsReports />
-                )}
+                userRole === "admin" && <Suspense fallback={<div>Loading...</div>}><CalendarView /></Suspense>
+            ) : (
+                userRole === 'admin' && <Suspense fallback={<div>Loading...</div>}><AnaliticsReports /></Suspense>
+            )}
         </div>
     );
 };
+
+

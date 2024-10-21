@@ -44,9 +44,9 @@
   "tasks": [
     {
       "id": "103",
-      "assignedTo": "2",
-      "name": "Miri",
-      "title": "Refactor CSS to Tailwind",
+      "assignedTo": "5",
+      "name": "Alisia",
+      "title": "Refactor to CSS",
       "description": "Convert existing CSS to use Tailwind CSS for a more maintainable and scalable styling approach in the application.",
       "status": "In Progress",
       "createdAt": "2024-10-11T10:00:00.000Z",
@@ -57,11 +57,6 @@
           "id": "ddef73ae-c5c0-4a10-ae3b-d5605529c8e0",
           "filename": "a12737f3-7bbc-45ad-a72a-da007d5cd984.pdf",
           "url": "blob:http://localhost:3001/5225faca-8ed6-4ca4-a751-f983c6894408"
-        },
-        {
-          "id": "e8245010-5719-4fa8-9ea1-c5f75caf8485",
-          "filename": "errorFields.jpeg",
-          "url": "blob:http://localhost:3001/524d0153-9e1a-4e9e-b1cb-93f6c7c7e54c"
         }
       ],
       "comment": [
@@ -89,7 +84,7 @@
       ]
     },
     {
-      "name": "Miri",
+      "name": "Ismail",
       "title": "Alisia Task Check Responsive Design",
       "description": "Check if the mobile version looks like figma",
       "status": "In Progress",
@@ -116,14 +111,14 @@
           "url": "blob:http://localhost:3001/65e3cf27-30fe-442b-960a-a2509d77ff10"
         }
       ],
-      "estimation": "1 day(s)",
-      "assignedTo": "2",
+      "estimation": "10 day(s)",
+      "assignedTo": "3",
       "id": "ImZnM9c"
     },
     {
       "name": "Alisia",
       "title": "Alisias Task",
-      "description": "Create a react app",
+      "description": "Alisia Edit",
       "status": "New Task",
       "completedAt": "2024-10-29T23:00:00.000Z",
       "createdAt": "2024-10-19T22:00:00.000Z",
@@ -162,41 +157,100 @@
     },
     {
       "name": "Miri",
-      "title": "dasdsad",
-      "description": "dsadsadsadasdasdasdfsdfdsfrwer",
+      "title": "Miri task ",
+      "description": "Miri task ",
       "status": "New Task",
       "completedAt": "2024-10-21T22:00:00.000Z",
       "createdAt": "2024-10-13T22:00:00.000Z",
-      "comment": [],
-      "file": [],
+      "comment": [
+        {
+          "id": "c1ee7c6d-6143-4690-9c32-5265e97c4742",
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "Ismail check this",
+          "createdAt": "2024-10-21T08:04:36.447Z"
+        }
+      ],
+      "file": [
+        {
+          "id": "d0884200-b9f4-404f-bd22-4622bd32a8b9",
+          "filename": "a12737f3-7bbc-45ad-a72a-da007d5cd984.pdf",
+          "url": "blob:http://localhost:3001/0489c9d3-5c59-4c96-9c20-1165c485820c"
+        },
+        {
+          "id": "3402eed1-d542-4820-8a65-de28ba3adbe3",
+          "filename": "errorFields.jpeg",
+          "url": "blob:http://localhost:3001/08c990bc-6b3d-46fd-97c4-e5ac324c60b8"
+        }
+      ],
       "estimation": "8 day(s)",
       "assignedTo": "2",
       "id": "nJyBUXK"
     },
     {
-      "name": "Miri",
-      "title": "miri re=render",
-      "description": "mirushja",
-      "status": "In Progress",
+      "name": "Alisia",
+      "title": "Alisia TASK",
+      "description": "Alsia TASK",
+      "status": "Closed",
       "completedAt": "2024-10-23T22:00:00.000Z",
       "createdAt": "2024-09-30T22:00:00.000Z",
-      "comment": [],
-      "file": [],
+      "comment": [
+        {
+          "id": "f4f6332d-d999-4562-a317-8888c7475122",
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "Alisia check",
+          "createdAt": "2024-10-21T08:06:39.672Z"
+        }
+      ],
+      "file": [
+        {
+          "id": "e741e4bb-f1a6-44a8-a46d-de027cf4eaf8",
+          "filename": "italianFlag.svg",
+          "url": "blob:http://localhost:3001/4c96d7b1-2946-4e8c-83ca-3e2051048bf2"
+        }
+      ],
       "estimation": "23 day(s)",
-      "assignedTo": "2",
+      "assignedTo": "5",
       "id": "6DbOxJI"
     },
     {
-      "name": "Miri",
-      "title": "dsf",
-      "description": "fds",
-      "status": "In Progress",
+      "name": "Rubin",
+      "title": "Rubin Check 1",
+      "description": "Rubin Check 1",
+      "status": "Ready Testing",
       "completedAt": "2024-10-15T22:00:00.000Z",
       "createdAt": "2024-10-01T22:00:00.000Z",
-      "comment": [],
-      "file": [],
+      "comment": [
+        {
+          "id": "07da1b82-8ceb-47c1-8c23-0bb0a971a00f",
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "Alisia Check",
+          "createdAt": "2024-10-21T08:07:12.378Z"
+        },
+        {
+          "id": "e9331298-0ea3-429c-a4fa-7b27524483b1",
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "wew",
+          "createdAt": "2024-10-21T08:08:03.904Z"
+        }
+      ],
+      "file": [
+        {
+          "id": "eac29107-ca6e-4db5-85e4-b601c68ebf5d",
+          "filename": "otherbrowser (1).jpeg",
+          "url": "blob:http://localhost:3001/afe745ee-05ba-413a-8287-31caa2e10548"
+        },
+        {
+          "id": "a0db4ded-071d-4638-8bb3-0688d5a75b59",
+          "filename": "proveCompleteField2.jpeg",
+          "url": "blob:http://localhost:3001/2c97dcfa-1312-486d-8845-115200cd653f"
+        }
+      ],
       "estimation": "14 day(s)",
-      "assignedTo": "2",
+      "assignedTo": "4",
       "id": "vDa_1gr"
     },
     {
