@@ -13,7 +13,7 @@ interface TabsProps {
 
 export const Tabs: React.FC<TabsProps> = ({ tabs }) => {
     return (
-        <div className="flex mb-5">
+        <div className="flex mb-5 flex-col md:flex-row">
             {tabs.map((tab, index) => (
                 <Button
                     label={tab.label}
