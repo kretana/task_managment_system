@@ -8,8 +8,8 @@ import {
 import { AppDispatch, RootState } from "../../redux/store";
 import { Task, TaskComment } from "../../types/taskTypes";
 import Button from "../common/Button";
-import TaskForm from "../common/TaskForm";
-import React, { useEffect, useState, useCallback } from "react";
+import TaskForm, { TaskFormRef } from "../common/TaskForm";
+import React, {useEffect, useState, useCallback, useRef} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
@@ -38,7 +38,7 @@ export const EditTask = () => {
     estimation: "",
     assignedTo: "",
   });
-
+  const taskFormRef = useRef<TaskFormRef>(null);
   const estimation = useTaskEstimation(taskData);
   useEffect(() => {
     dispatch(getTaskById(id));
@@ -58,8 +58,13 @@ export const EditTask = () => {
   const handleSubmit = useCallback(
     async (e: React.FormEvent) => {
       e.preventDefault();
-      await dispatch(editTaskById(taskData));
-      navigate("/dashboard");
+      if (taskFormRef.current?.validateForm()){
+        await dispatch(editTaskById(taskData));
+        navigate("/dashboard");
+      }else{
+        console.error("Form validation failed");
+      }
+
     },
     [taskData, dispatch, navigate]
   );
@@ -121,6 +126,7 @@ export const EditTask = () => {
           currentComment={currentComment}
           setCurrentComment={setCurrentComment}
           isCreating={false}
+          ref={taskFormRef}
         />
         <div className="flex justify-between">
           {role !== "developer" && (

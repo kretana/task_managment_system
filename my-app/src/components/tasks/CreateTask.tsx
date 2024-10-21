@@ -3,8 +3,8 @@ import { createTask } from "../../redux/slices/tasks/tasksThunk";
 import { AppDispatch } from "../../redux/store";
 import { Task } from "../../types/taskTypes";
 import Button from "../common/Button";
-import TaskForm from "../common/TaskForm";
-import React, { useCallback, useEffect, useState } from "react";
+import TaskForm, { TaskFormRef } from "../common/TaskForm";
+import React, {useCallback, useEffect, useRef, useState} from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -21,7 +21,7 @@ export const CreateTask = () => {
     estimation: "",
     assignedTo: "",
   });
-
+    const taskFormRef = useRef<TaskFormRef>(null);
   const estimation = useTaskEstimation(taskData);
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
@@ -30,18 +30,23 @@ export const CreateTask = () => {
     setTaskData((prev) => ({ ...prev, estimation }));
   }, [estimation]);
 
-  const handleSubmit = useCallback(
-    async (e: React.FormEvent) => {
-      e.preventDefault();
-      try {
-        await dispatch(createTask(taskData)).unwrap();
-        navigate("/dashboard");
-      } catch (err) {
-        console.error("Failed to create task", err);
-      }
-    },
-    [dispatch, taskData, navigate]
-  );
+    const handleSubmit = useCallback(
+        async (e: React.FormEvent) => {
+            e.preventDefault();
+
+            if (taskFormRef.current?.validateForm()) {
+                try {
+                    await dispatch(createTask(taskData)).unwrap();
+                    navigate("/dashboard");
+                } catch (err) {
+                    console.error("Failed to create task", err);
+                }
+            } else {
+                console.error("Form validation failed");
+            }
+        },
+        [dispatch, taskData, navigate]
+    );
 
   return (
     <div className="bg-white p-6 rounded-md shadow-md">
@@ -59,6 +64,7 @@ export const CreateTask = () => {
             setTaskData((prev) => ({ ...prev, [field]: value }))
           }
           isCreating={true}
+          ref={taskFormRef}
         />
         <Button
           type="submit"

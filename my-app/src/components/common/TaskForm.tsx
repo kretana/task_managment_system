@@ -46,7 +46,6 @@ const TaskForm = forwardRef<TaskFormRef, TaskFormProps>(
 
         useImperativeHandle(ref, () => ({
             validateForm: () => {
-
                 const hasErrors = [
                     !taskData.name && (errors.name = "Name is required"),
                     !taskData.title && (errors.title = "Title is required"),
