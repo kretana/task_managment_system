@@ -117,7 +117,7 @@
     },
     {
       "name": "Alisia",
-      "title": "Alisias Task",
+      "title": "Alisias Task Edit",
       "description": "Alisia Edit",
       "status": "New Task",
       "completedAt": "2024-10-29T23:00:00.000Z",
@@ -129,6 +129,13 @@
           "userName": "Kretana",
           "content": "xxcxc",
           "createdAt": "2024-10-21T07:52:37.315Z"
+        },
+        {
+          "id": "d9e32d03-ba2a-4226-bd39-b3139171ccc9",
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "Alisia task edit",
+          "createdAt": "2024-10-21T08:40:14.167Z"
         }
       ],
       "file": [
@@ -158,7 +165,7 @@
     {
       "name": "Miri",
       "title": "Miri task ",
-      "description": "Miri task ",
+      "description": "Miri task  test",
       "status": "New Task",
       "completedAt": "2024-10-21T22:00:00.000Z",
       "createdAt": "2024-10-13T22:00:00.000Z",
@@ -183,7 +190,7 @@
           "url": "blob:http://localhost:3001/08c990bc-6b3d-46fd-97c4-e5ac324c60b8"
         }
       ],
-      "estimation": "8 day(s)",
+      "estimation": "10 day(s)",
       "assignedTo": "2",
       "id": "nJyBUXK"
     },
@@ -265,6 +272,65 @@
       "estimation": "",
       "assignedTo": "",
       "id": "Exuk-wD"
+    },
+    {
+      "name": "Ismail",
+      "title": "Ismal Bug Solving",
+      "description": "Ismal Bug Solving",
+      "status": "Closed",
+      "completedAt": "2024-10-22T22:00:00.000Z",
+      "createdAt": "2024-10-01T22:00:00.000Z",
+      "comment": [
+        {
+          "id": "a014686a-acdb-479f-a54f-810a9a740935",
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "Ismal bug",
+          "createdAt": "2024-10-21T08:36:33.458Z"
+        }
+      ],
+      "file": [
+        {
+          "id": "445ca717-28ef-446c-96e0-fedd43ade1d8",
+          "filename": "a12737f3-7bbc-45ad-a72a-da007d5cd984.pdf",
+          "url": "blob:http://localhost:3001/97ea5b3a-697c-46ac-818a-b017dfde78ab"
+        }
+      ],
+      "estimation": "21 day(s)",
+      "assignedTo": "3",
+      "id": "yahd7PF"
+    },
+    {
+      "name": "Miri",
+      "title": "Miri bug 1",
+      "description": "Miri bug",
+      "status": "Ready Testing",
+      "completedAt": "2024-10-07T22:00:00.000Z",
+      "createdAt": "2024-10-01T22:00:00.000Z",
+      "comment": [
+        {
+          "id": "8dc4e3be-29e5-42a5-b069-4082aa0658b3",
+          "userId": "1",
+          "userName": "Kretana",
+          "content": "miri bug",
+          "createdAt": "2024-10-21T08:37:52.232Z"
+        }
+      ],
+      "file": [
+        {
+          "id": "ba7ea806-33f2-4c4d-baf8-a2985172cbef",
+          "filename": "proveCompleteField2.jpeg",
+          "url": "blob:http://localhost:3001/33b768bb-1c2c-4457-85e6-e8bf3206872c"
+        },
+        {
+          "id": "a6007a2f-6ae2-4d76-8ee0-3edc2fa5c312",
+          "filename": "proveCompleteField.jpeg",
+          "url": "blob:http://localhost:3001/606ceffd-160b-4b52-9a07-4d745b542561"
+        }
+      ],
+      "estimation": "6 day(s)",
+      "assignedTo": "2",
+      "id": "K92kWME"
     }
   ]
 }

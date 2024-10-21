@@ -6,7 +6,6 @@ import {Task, TaskUpdate} from "../../../types/taskTypes";
 
 export const fetchTasks = createAsyncThunk('tasks/fetchTasks', async ({ createdAt, completedAt , searchTerm, nameFilter, statusFilter}: { createdAt?: string, completedAt?: string , searchTerm?: string, nameFilter?: string, statusFilter?:string}) => {
     let url = `${URL}/tasks`;
-
     const params = new URLSearchParams();
     if (createdAt) {
         params.append('createdAt', createdAt);
@@ -14,19 +13,15 @@ export const fetchTasks = createAsyncThunk('tasks/fetchTasks', async ({ createdA
     if (completedAt) {
         params.append('completedAt', completedAt);
     }
-
     if (searchTerm) {
         params.append('searchTerm', searchTerm);
     }
-
     if (nameFilter) {
         params.append('nameFilter', nameFilter);
     }
-
     if (statusFilter) {
         params.append('statusFilter', statusFilter);
     }
-
     if (params.toString()) {
         url += `?${params.toString()}`;
     }

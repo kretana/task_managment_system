@@ -76,16 +76,13 @@ const tasksSlice = createSlice({
       .addCase(editTaskById.fulfilled, (state, action: PayloadAction<Task>) => {
         state.status = "succeeded";
         const updatedTask = action.payload;
-        const index = state.tasks.findIndex(
-          (task) => task.id === updatedTask.id
+        state.tasks = state.tasks.map((task) =>
+            task.id === updatedTask.id ? updatedTask : task
         );
-        if (index !== -1) {
-          state.tasks[index] = updatedTask;
-        }
         state.selectedTask = updatedTask;
         state.error = null;
       })
-      .addCase(editTaskById.rejected, (state, action) => {
+    .addCase(editTaskById.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message || "Failed to edit task";
       });
