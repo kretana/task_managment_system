@@ -47,9 +47,6 @@ export const EditTask = () => {
         ...selectedTask,
       });
     }
-    if (estimation) {
-      setTaskData((prev) => ({ ...prev, estimation }));
-    }
   }, [selectedTask ]);
 
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
@@ -83,9 +80,16 @@ export const EditTask = () => {
     }
   }, [currentComment, taskData.comment, dispatch, id, storedUser]);
 
+
+  useEffect(() => {
+    if (estimation) {
+      setTaskData((prev) => ({ ...prev, estimation }));
+    }
+  }, [estimation]);
+
+
   const handleDelete = useCallback(async () => {
     if (id) {
-      // Implement custom confirmation modal here
       const confirmDelete = window.confirm("Are you sure you want to delete this task?");
       if (confirmDelete) {
         await dispatch(deleteTaskById(id));
